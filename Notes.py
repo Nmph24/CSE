@@ -1,4 +1,5 @@
-# # This is working
+import random # This should be on line 1
+#  # This is working
 # print("hello world")
 #
 # # arbin saucedo
@@ -81,3 +82,30 @@ def grade_calc(percentage):
 
 
 print(grade_calc(90))
+
+
+def Happy_bday(name):
+    print("Happy Birthday to %s" % name + ",")
+    print("Happy Birthday To you" + ",")
+    print("Happy Birthday To you" + ",")
+    print("Happy Birthday toooo " + name + ".")
+
+Happy_bday("Jon")
+
+
+# loops
+
+for num in range(100):
+    print(num + 1)
+
+
+a = 1
+while a <= 10:
+    print(a)
+    a += 1
+
+
+# Random Numbers
+
+
+print(random.randint(0, 100))
