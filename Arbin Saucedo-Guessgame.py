@@ -30,17 +30,21 @@ import random
 
 random = random.randint(1, 50)
 
-def guess(number_guess):
-    if number_guess >= random:
-        return "Number is too High"
-    elif number_guess == random:
-        return "Number Is Correct"
-    elif number_guess <= random:
-        return "Number is too Low"
+#def guess(number_guess):
+#   if number_guess == random:
+#        return "GENGUS"
+#    elif number_guess >= random:
+#        return "Number Is High"
+#    elif number_guess <= random:
+#        return "Number is Low"
 
+guess = input(" ")
+while guess
+    if guess == random:
+        print(" GUNGUS ")
+    elif guess >= random:
+        print("Num To HIGH")
+    elif guess <= random:
+        print(" Num to LOW")
 
-print(guess(10))
-# guessNum = input (" ")
-# print("Is number %s" % guessNum)
-
-
+str(num) == guess
