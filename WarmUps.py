@@ -18,3 +18,18 @@ def add(number1, number2, number3):
 
 
 add(6, 4, 0)
+# 12.7.17
+
+
+def repeat(string):
+    print(string)
+    print(string)
+    print(string)
+
+    for x in range(99999):
+        print(string)
+
+
+repeat(" GUNGUS ")
+
+
