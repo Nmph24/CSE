@@ -26,10 +26,16 @@ def repeat(string):
     print(string)
     print(string)
 
-    for x in range(99999):
+    for x in range(999):
         print(string)
 
 
 repeat(" GUNGUS ")
 
+#12.8.17
+def date(month, day, year):
+    print("%s/ %s/ %s" % (month, day, year))
+
+
+print(date(12, 8, 2017))
 

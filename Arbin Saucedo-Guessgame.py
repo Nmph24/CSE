@@ -7,16 +7,36 @@ import random
 
 randomNum = random.randint(1, 50)
 
+name = input(" ")
+
+print("Hello %s today you will guess a random number" % name)
+
+print(",But you will only have 5 trys to guess the number.")
+
+print("So Good Luck %s" % name)
+
+print("*Start*")
+
+guesses = 5
+
 guess = int(input(" "))
 
-if guess == randomNum:
-    print(" GUNGUS ")
+while guesses > 0 and guess != (str(randomNum)):
 
-elif guess >= randomNum:
-    print("Your Guess is higher than Number")
-
-elif guess <= randomNum:
-    print("Your Guess is lower than Number")
+   if guess == randomNum:
+    print(" GUNGUS YOU GOT IT AFTER %s TRYS" % guesses)
 
 
+   elif guess >= randomNum:
+    print("Sorry, Your Guess is higher than Number try again.")
+    guesses -= 1
 
+
+   elif guess <= randomNum:
+    print("Nope, Your Guess is lower than Number give another guess")
+    guesses -= 1
+
+if guesses == 0:
+    print("You ran out of guess ")
+    print("*GAME OVER*")
+    print("Number was %d" % randomNum)
