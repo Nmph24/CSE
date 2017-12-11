@@ -7,7 +7,7 @@ import random
 
 randomNum = random.randint(1, 50)
 
-name = input(" ")
+name = input("Name: ")
 
 print("Hello %s today you will guess a random number" % name)
 
@@ -18,25 +18,31 @@ print("So Good Luck %s" % name)
 print("*Start*")
 
 guesses = 5
-
-guess = int(input(" "))
+guess = -1
 
 while guesses > 0 and guess != (str(randomNum)):
+    guess = int(input(" "))
 
-   if guess == randomNum:
-    print(" GUNGUS YOU GOT IT AFTER %s TRYS" % guesses)
+    if guess == randomNum:
+        print(" GUNGUS YOU GOT IT ")
+        print("Number is %d" % randomNum)
+        guesses = -1
 
+    elif guess >= randomNum:
+        print("Sorry, Your Guess is higher than Number try again.")
+        guesses -= 1
 
-   elif guess >= randomNum:
-    print("Sorry, Your Guess is higher than Number try again.")
-    guesses -= 1
-
-
-   elif guess <= randomNum:
-    print("Nope, Your Guess is lower than Number give another guess")
-    guesses -= 1
+    elif guess <= randomNum:
+        print("Nope, Your Guess is lower than Number give another guess")
+        guesses -= 1
 
 if guesses == 0:
     print("You ran out of guess ")
     print("*GAME OVER*")
     print("Number was %d" % randomNum)
+
+if guesses == -1:
+    print(" YOU DID IT GREAT JOB ")
+    print("*YOU WIN*")
+
+
