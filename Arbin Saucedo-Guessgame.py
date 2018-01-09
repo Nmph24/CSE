@@ -24,7 +24,7 @@ while guesses > 0 and guess != (str(randomNum)):
     guess = int(input(" "))
 
     if guess == randomNum:
-        print(" GUNGUS YOU GOT IT ")
+        print(" boom done happy good time goodnight ")
         print("Number is %d" % randomNum)
         guesses = -1
 
@@ -44,5 +44,3 @@ if guesses == 0:
 if guesses == -1:
     print(" YOU DID IT GREAT JOB ")
     print("*YOU WIN*")
-
-
