@@ -1,13 +1,3 @@
-import random
-
-# Import Statements
-# Class Defintions
-# -Items
-# -Characters
-# -Room
-# Instantide Classes
-# Controller
-
 health = 300
 
 
@@ -853,12 +843,13 @@ class Room(object):
 
 
 journey_hallway = Room("Journey Hall", "You have arrived at a hallway that will lead you into "
-                       "many battles in this world and you need show your the best fighter out there", None,
-                       'Temple', None, 'Tangerine_Castle', None)
+                       "many battles in this world and you need show your the best fighter out there",
+                       "Fighter: None", 'N: Temple', "S: None", 'E: Tangerine_Castle', "W: None")
 
-Temple = Room("Temple", "This Temple is where your first fight begins"
+Temple = Room("Temple", "Des: This Temple is where your first fight begins"
               "with Princess Zelda good luck with the fight and the others that come with many more"
-              "fighters you will face", "Zelda", "Cold_Place", None, "Fountain_Of_Sleep", None)
+              "fighters you will face", "Fighter: Zelda", "N: Cold_Place", "S: None", "E: Fountain_Of_Sleep",
+              "W: None")
 
 Tangerine_Castle = Room("Tangerine Castle", "The Castle of the Olive Kingdom and your first fight "
                         "with Princess Tangerine", "Princess Peach", "Fountain_Of_Sleep", None,
@@ -933,7 +924,6 @@ short_directions = ["n", "s", "e", "w"]
 
 while True:
     print(current_node.name)  # Change
-    print(current_node.name)  # Change
     command = input('>_'.lower())
     if command == 'quit':
         quit(0)
@@ -944,7 +934,7 @@ while True:
         # change command to be the long form
     if command in directions:
         try:
-            print("hey")  # Change this
+            current_node.move(command)
         except KeyError:
             print("You can not go back now keep fighting")
     if command == 'JV3':
@@ -959,5 +949,10 @@ while True:
         print("I was born by myself ")
         print("I don't need a posse - I get it on by myself ")
         print("Adversaries get shelft")
-    else:
-        print('Command Not Recognized')
+    if command == "look":
+        print(current_node.desc)
+        print(current_node.fighters)
+        print(current_node.east)
+        print(current_node.north)
+        print(current_node.south)
+        print(current_node.west)
