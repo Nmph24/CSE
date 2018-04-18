@@ -844,7 +844,7 @@ class Room(object):
 
 journey_hallway = Room("Journey Hall", "You have arrived at a hallway that will lead you into "
                        "many battles in this world and you need show your the best fighter out there",
-                       "Fighter: None", 'N: Temple', "S: None", 'E: Tangerine_Castle', "W: None")
+                       None, 'Temple', None, 'Tangerine_Castle', None)
 
 Temple = Room("Temple", "Des: This Temple is where your first fight begins"
               "with Princess Zelda good luck with the fight and the others that come with many more"
@@ -888,7 +888,7 @@ Loud_City = Room("Loud City", "Well your in the city know and well this place lo
 Gren_Dino_Island64 = Room("Gren Dino Island 64", "SOOO you close to finishing your rage inducing trip"
                           "but you still have another one after this sooo, well never mind that but now you "
                           "are up against Marthplayed by Mew2King so don't let him grab you from across the stage",
-                          "Marth played by Mew2king", None, None, "Dream_Land64", None)
+                          "Marth", None, None, "Dream_Land64", None)
 
 Jungle_Japes = Room("Jungle Japs", "So they're finally here, performing for you If you know the words"
                     "you can join in to, Put you hand together, if you want to clap as we take you "
@@ -916,13 +916,23 @@ Five_Sides = Room("Five Sides", "Now you have fallen off of the super fast car t
                   "you still have a lot of people to fight just like now and your fighting Bowser who was here for"
                   "a brake but is fighting you now", "Bowser", None, None, "Onett", None)
 
-Good_Bay = Room("Good Bay", "BOI", None, None, None, None, None)
+Good_Bay = Room("Good Bay", "Well you made it out of the jungle but now your in a nice bay area"
+                "very pretty place but that does not mean you journey is over you still have "
+                "a long way to go but now you are fighting Link", "Link", "Pokefloats", None,
+                None, None)
+
+Onett = Room("Onett", "You left the big city after your fight with Bowser and now your in a small "
+             "town and your at its medicine shop called Onett but your still not done fighting"
+             "you are fighting Ness in his home town and he is not or normal kid watch out", "Ness",
+             )
+
 
 current_node = journey_hallway
 directions = ["north", "south", "east", "west"]
 short_directions = ["n", "s", "e", "w"]
 
 while True:
+    print(current_node.desc)
     print(current_node.name)  # Change
     command = input('>_'.lower())
     if command == 'quit':
@@ -950,7 +960,6 @@ while True:
         print("I don't need a posse - I get it on by myself ")
         print("Adversaries get shelft")
     if command == "look":
-        print(current_node.desc)
         print(current_node.fighters)
         print(current_node.east)
         print(current_node.north)
