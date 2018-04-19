@@ -1,6 +1,3 @@
-health = 300
-
-
 class Item(object):
     def __init__(self, name):
         self.name = name
@@ -175,15 +172,12 @@ class Keys(Item):
     def __init__(self, name):
         super(Keys, self).__init__(name)
 
-    def open(self):
-        print("You have got the four keys and opened the final door")
-
 
 class DL64key(Keys):
     def __init__(self, name):
         super(DL64key, self).__init__(name)
 
-    def closeDL64(self):
+    def closedl64(self):
         print("You have picked up the key that gets you closer to the end")
 
 
@@ -191,7 +185,7 @@ class KJ64key(Keys):
     def __init__(self, name):
         super(KJ64key, self).__init__(name)
 
-    def closeKJ64(self):
+    def closekj64(self):
         print("You are getting closer to the end")
 
 
@@ -199,7 +193,7 @@ class GDI(Keys):
     def __init__(self, name):
         super(GDI, self).__init__(name)
 
-    def closeGDI(self):
+    def closegdi(self):
         print("There are other keys but if you find them then the end is close")
 
 
@@ -859,21 +853,21 @@ Fountain_Of_Sleep = Room("Fountain Of Sleep", "Now you are extra sleepy but you 
                          "so be happy for that but you now you up against "
                          "a harder characters because you have chosen the short "
                          "but harder path to the end so you are up against "
-                         "Jigglypuff played by HBox", "Jigglypuff played by HBox", None, None,
+                         "Jigglypuff", "Jigglypuff played by HBox", None, None,
                          "Blue_Blues", None)
 
 Olive_Kingdom = Room("Olive Kingdom", "This is the Olive Kingdom the home of Mario,"
-                     "Dr.Mario, and Luigi and here you will be "
-                     "Fighting Mario so START", "Mario", None, None, "Olive_Kingdom_2", None)
+                     "Dr.Mario, and Luigi and here you will be Fighting Mario so START"
+                     , "Mario", None, None, "Olive_Kingdom_2", None)
 
 Cold_Place = Room("Cold Place", "The Coldest place out of this whole world"
                   "which is also mount everest and here you "
                   "are fighting 2 people that are one fighther"
-                  "Ice Climbers", "Ice CLimbers", "Loud_City", None, None, None)
+                  "Ice Climbers", "Ice Climbers", "Loud_City", None, None, None)
 
 Blue_Blues = Room("Blue Blues", "Now it gets harder from here in blue blues so now "
                   "your up against Sheik played by Plup ,so good luck cause its a top tier",
-                   "Shiek played by Plup", None, None, "Gren_Dino_Island64",None)
+                   "Shiek", None, None, "Gren_Dino_Island64",None)
 
 Olive_Kingdom_2 = Room("Olive Kingdom 2", "This is the other side of the Olive Kingdom where you "
                        "are slowly entering the jungle to fight someone else "
@@ -887,7 +881,7 @@ Loud_City = Room("Loud City", "Well your in the city know and well this place lo
 
 Gren_Dino_Island64 = Room("Gren Dino Island 64", "SOOO you close to finishing your rage inducing trip"
                           "but you still have another one after this sooo, well never mind that but now you "
-                          "are up against Marthplayed by Mew2King so don't let him grab you from across the stage",
+                          "are up against Marth so don't let him grab you from across the stage",
                           "Marth", None, None, "Dream_Land64", None)
 
 Jungle_Japes = Room("Jungle Japs", "So they're finally here, performing for you If you know the words"
@@ -904,7 +898,7 @@ Small_Red = Room("Small Red", "Small Red is a car not a map I don't know how you
 
 Dream_Land64 = Room("Dream Land 64", "Well you got 2 rooms left if you have all the keys that is anyway"
                     "the last 2 are both bosses but this one is like a semi-boss so good luck cause "
-                    "now you are up against Fox played by Armada", "Fox Played By Armada", None,
+                    "now you are up against Fox played by Armada", "Fox", None,
                     "Final_Hallway", "Key_Room", None)
 
 Kongo_Jungle = Room("Kongo Jungle", "You mange to beat up DK but no Diddy Kong is mad at you so fight em cause"
@@ -924,8 +918,29 @@ Good_Bay = Room("Good Bay", "Well you made it out of the jungle but now your in 
 Onett = Room("Onett", "You left the big city after your fight with Bowser and now your in a small "
              "town and your at its medicine shop called Onett but your still not done fighting"
              "you are fighting Ness in his home town and he is not or normal kid watch out", "Ness",
-             )
+             None, None, "Corneria", None)
 
+Pokefloats = Room("Pokefloats", "You manage to beat Link but you somehow get to a float show with many "
+                  "floats from pokemon and you happen to land on one of them and they start to inflate them"
+                  "so now your in the air but there is still a challenger and his name is Pikachu", "Pikachu",
+                  "Pokestadium", None, None, None)
+
+Corneria = Room("Cornria", "Away from the small city you get on a ship to get away but there is someone "
+                "else in the ship he shoots at you and you jump on top of the ship and there is the "
+                "captain of the ship Falco the blue bird of the glaxies and he is your next opponent",
+                "Falco", None, None, "Venom", None)
+
+Pokestadium = Room("Pokestadium", "You made it off the floats and won against Pikachu but you now your at "
+                   "a stadium for pokemon fights and you feel a weird pressure coming from the shadows "
+                   "then a ball of dark energy launches at you but you dodge it and now your next fight"
+                   "begins against Mewtwo careful not to look him in the eyes up close he has a special "
+                   "that confuses you to get comboed so take care ", "Mewtwo", None, None, None,
+                   "Rainbowcruise")
+
+Venom = Room("Venom", "That should have been the only person there but there was someone else on the ship"
+             "Young Link jumps out on top of the ship with you. He was trying to catch a ride like you to go"
+             "go back home with it but he is the last one on here and he crashed the engine so your going to"
+             "falling down soon so good luck", "Young Link", None, None, None, "Brinstar")
 
 current_node = journey_hallway
 directions = ["north", "south", "east", "west"]
