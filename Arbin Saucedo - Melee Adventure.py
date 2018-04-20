@@ -942,6 +942,13 @@ Venom = Room("Venom", "That should have been the only person there but there was
              "go back home with it but he is the last one on here and he crashed the engine so your going to"
              "falling down soon so good luck", "Young Link", None, None, None, "Brinstar")
 
+Rainbowcruise = Room("Rainbowcruise", "Now you got out the stadium and won and you see a cruise ship in the "
+                     "distant so you board it but there is no breaks in this game so get ready cause your next "
+                     "is on this ship and his name is Yoshi and he is a small green dinosaur but he does "
+                     "really look the part but watch out for his tongue", "Yoshi", None, None, "Flatzone", None)
+
+Brinstar
+
 current_node = journey_hallway
 directions = ["north", "south", "east", "west"]
 short_directions = ["n", "s", "e", "w"]
