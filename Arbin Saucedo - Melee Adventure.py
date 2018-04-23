@@ -891,6 +891,7 @@ Jungle_Japes = Room("Jungle Japs", "So they're finally here, performing for you 
                     "Donkey Kong", None, None, "Kongo_Jungle", None)
 
 
+
 Small_Red = Room("Small Red", "Small Red is a car not a map I don't know how you ended up on this car"
                  "but I am pretty sure the driver is kinda mad and he is well then there is Captain Falcon"
                  "Good luck because this man is really buff and has a very strong Knee so watch out for that",
@@ -898,7 +899,7 @@ Small_Red = Room("Small Red", "Small Red is a car not a map I don't know how you
 
 Dream_Land64 = Room("Dream Land 64", "Well you got 2 rooms left if you have all the keys that is anyway"
                     "the last 2 are both bosses but this one is like a semi-boss so good luck cause "
-                    "now you are up against Fox played by Armada", "Fox", None,
+                    "now you are up against Fox", "Fox", None,
                     "Final_Hallway", "Key_Room", None)
 
 Kongo_Jungle = Room("Kongo Jungle", "You mange to beat up DK but no Diddy Kong is mad at you so fight em cause"
@@ -947,7 +948,37 @@ Rainbowcruise = Room("Rainbowcruise", "Now you got out the stadium and won and y
                      "is on this ship and his name is Yoshi and he is a small green dinosaur but he does "
                      "really look the part but watch out for his tongue", "Yoshi", None, None, "Flatzone", None)
 
-Brinstar
+Brinstar = Room("Brinstar", "The ship crashed onto a mountain side and now it is a weird valcano like area "
+                "but its green acid instead of lava and your not safe either there is still fighting even in"
+                "place and its Samus a bounty hunter of space and she is here to get you so take care and watch "
+                "cause she knows her stuff", "Samus", None, None, "BrinstarDepths", None)
+
+Flatzone = Room("Flatzone", "You somehow made it into a video game inside of a video game and your in a 2d "
+                "area against Mr. Game And Watch who is the owner of the place and he wants you out so you gotta "
+                "go against him now and tip watch out for his judgement hammer it deals crazy damage", "MrGameAndWatch"
+                , "KongoJungle64", None, None, None)
+
+Brinstardepths = Room("Brinstardepths", "You survived against a bounty hunter thats good but you fell far down and "
+                      "somehow survived oh well its a game anything can happen anyway your not done fighting there "
+                      "is someone with you and yes there is and he is Ganondorf the dark warlock also this place"
+                      "is ready to explode like a volcano", "Ganondorf", None, "GrenDinoIsland", None, None)
+
+
+KongoJungle64 = Room("KongoJungle64", "Game and watch let you go after you beat him and showed you the way out"
+                     "or did he. You end up in a familar jungle but you are fighting kirby instead of DK or "
+                     "Diddy Kong but anyway don't let Kirby hit you with his flaming hammer or it will hurt"
+                     ". Just saying your close to the end", "Kirby", None, "Keyroom", None, "TheEndHall")
+
+GrenDinoIsland = Room("GrenDinoIsland", "Your on a island looks like heaven or something but its peaceful "
+                      "maybe you died to the explosion after beating Ganondorf but there is someone with a sword"
+                      "and his name is Roy and he is a skilled swords man also he has magic powers that can bind "
+                      "with his sword so careful for that anyway your close to finishing this game", "Roy",
+                      "Keyroom", None, None, "TheEndHall")
+
+Keyroom = Room("Keyroom", "Your in a hallway leading you to 3 different rooms choose the one you haven't been to"
+               "yet", None, None, "DreamLand64", "KongoJungle64", "GrenDinoIsland")
+
+TheEndHall = Room("TheEndHall",)
 
 current_node = journey_hallway
 directions = ["north", "south", "east", "west"]
