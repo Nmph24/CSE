@@ -838,58 +838,57 @@ class Room(object):
 
 journey_hallway = Room("Journey Hall", "You have arrived at a hallway that will lead you into "
                        "many battles in this world and you need show your the best fighter out there",
-                       None, 'Temple', None, 'Tangerine_Castle', None)
+                       None, 'Temple', None, 'TangerineCastle', None)
 
-Temple = Room("Temple", "Des: This Temple is where your first fight begins"
+Temple = Room("Temple", "This Temple is where your first fight begins"
               "with Princess Zelda good luck with the fight and the others that come with many more"
-              "fighters you will face", "Fighter: Zelda", "N: Cold_Place", "S: None", "E: Fountain_Of_Sleep",
-              "W: None")
+              "fighters you will face", "Zelda", "ColdPlace", None, "Fountain_Of_Sleep",
+              None)
 
-Tangerine_Castle = Room("Tangerine Castle", "The Castle of the Olive Kingdom and your first fight "
-                        "with Princess Tangerine", "Princess Peach", "Fountain_Of_Sleep", None,
-                        "Olive_Kingdom", None)
+TangerineCastle = Room("Tangerine Castle", "The Castle of the Olive Kingdom and your first fight "
+                       "with Princess Tangerine", "Princess Peach", "Fountain_Of_Sleep", None,
+                       "Olive_Kingdom", None)
 
-Fountain_Of_Sleep = Room("Fountain Of Sleep", "Now you are extra sleepy but you can fight still "
-                         "so be happy for that but you now you up against "
-                         "a harder characters because you have chosen the short "
-                         "but harder path to the end so you are up against "
-                         "Jigglypuff", "Jigglypuff played by HBox", None, None,
-                         "Blue_Blues", None)
+FountainOfSleep = Room("FountainOfSleep", "Now you are extra sleepy but you can fight still "
+                       "so be happy for that but you now you up against "
+                       "a harder characters because you have chosen the short "
+                       "but harder path to the end so you are up against "
+                       "Jigglypuff", "Jigglypuff played by HBox", None, None,
+                       "BlueBlues", None)
 
-Olive_Kingdom = Room("Olive Kingdom", "This is the Olive Kingdom the home of Mario,"
-                     "Dr.Mario, and Luigi and here you will be Fighting Mario so START"
-                     , "Mario", None, None, "Olive_Kingdom_2", None)
+OliveKingdom = Room("Olive Kingdom", "This is the Olive Kingdom the home of Mario,"
+                    "Dr.Mario, and Luigi and here you will be Fighting Mario so START"
+                    , "Mario", None, None, "OliveKingdom2", None)
 
-Cold_Place = Room("Cold Place", "The Coldest place out of this whole world"
-                  "which is also mount everest and here you "
-                  "are fighting 2 people that are one fighther"
-                  "Ice Climbers", "Ice Climbers", "Loud_City", None, None, None)
+ColdPlace = Room("Cold Place", "The Coldest place out of this whole world"
+                 "which is also mount everest and here you "
+                 "are fighting 2 people that are one fighther"
+                 "Ice Climbers", "Ice Climbers", "LoudCity", None, None, None)
 
-Blue_Blues = Room("Blue Blues", "Now it gets harder from here in blue blues so now "
-                  "your up against Sheik played by Plup ,so good luck cause its a top tier",
-                   "Shiek", None, None, "Gren_Dino_Island64",None)
+BlueBlues = Room("Blue Blues", "Now it gets harder from here in blue blues so now "
+                 "your up against Sheik played by Plup ,so good luck cause its a top tier",
+                 "Shiek", None, None, "GrenDinoIsland64",None)
 
-Olive_Kingdom_2 = Room("Olive Kingdom 2", "This is the other side of the Olive Kingdom where you "
-                       "are slowly entering the jungle to fight someone else "
-                       "but for now you up against Luigi", "Luigi", None, None, "Jungle_Japes", None)
+OliveKingdom2 = Room("Olive Kingdom 2", "This is the other side of the Olive Kingdom where you "
+                     "are slowly entering the jungle to fight someone else "
+                     "but for now you up against Luigi", "Luigi", None, None, "Jungle_Japes", None)
 
-Loud_City = Room("Loud City", "Well your in the city know and well this place looks like it has more of "
-                 "an advance in car technology and there is still fighters here so don't"
-                 "let the cars distract you anyways now your up against Pichu a small mice but "
-                 "don't let that fool you he still packs a good punch", "Pichu", "Small_Red",
-                 None, None, None)
+LoudCity = Room("Loud City", "Well your in the city know and well this place looks like it has more of "
+                "an advance in car technology and there is still fighters here so don't"
+                "let the cars distract you anyways now your up against Pichu a small mice but "
+                "don't let that fool you he still packs a good punch", "Pichu", "Small_Red",
+                None, None, None)
 
-Gren_Dino_Island64 = Room("Gren Dino Island 64", "SOOO you close to finishing your rage inducing trip"
-                          "but you still have another one after this sooo, well never mind that but now you "
-                          "are up against Marth so don't let him grab you from across the stage",
-                          "Marth", None, None, "Dream_Land64", None)
+GrenDinoIsland64 = Room("Gren Dino Island 64", "SOOO you close to finishing your rage inducing trip"
+                        "but you still have another one after this sooo, well never mind that but now you "
+                        "are up against Marth so don't let him grab you from across the stage",
+                        "Marth", None, None, "Dream_Land64", None)
 
-Jungle_Japes = Room("Jungle Japs", "So they're finally here, performing for you If you know the words"
-                    "you can join in to, Put you hand together, if you want to clap as we take you "
-                    "through this monkey rap DK DONKEY KONG. Well you may have guessed it already that"
-                    "your up against Donkey Kong king of the jungle so get ready to fight",
-                    "Donkey Kong", None, None, "Kongo_Jungle", None)
-
+JungleJapes = Room("Jungle Japs", "So they're finally here, performing for you If you know the words"
+                   "you can join in to, Put you hand together, if you want to clap as we take you "
+                   "through this monkey rap DK DONKEY KONG. Well you may have guessed it already that"
+                   "your up against Donkey Kong king of the jungle so get ready to fight",
+                   "Donkey Kong", None, None, "Kongo_Jungle", None)
 
 
 Small_Red = Room("Small Red", "Small Red is a car not a map I don't know how you ended up on this car"
@@ -978,7 +977,20 @@ GrenDinoIsland = Room("GrenDinoIsland", "Your on a island looks like heaven or s
 Keyroom = Room("Keyroom", "Your in a hallway leading you to 3 different rooms choose the one you haven't been to"
                "yet", None, None, "DreamLand64", "KongoJungle64", "GrenDinoIsland")
 
-TheEndHall = Room("TheEndHall",)
+TheEndHall = Room("TheEndHall", "This is the end hall that will lead you to the last 2 battles with actual bosses"
+                  "and it won't be easy good luck", None, None, None, "Battlefield", None)
+
+Battlefield = Room("Battlefield", "This is Crazy hand, he is just a hand with white glove but he is crazy and an "
+                   "odd one with many attacks and more health also he is really fast so you better come up with "
+                   "a way to beat him", "CrazyHand", None, None, "FinalDestination", None)
+
+FinalDestination = Room("FinalDestination", "You beat Crazy Hand props to you but there is one more hand "
+                        "the one who started this all Master Hand. He is the final boss to this world and the "
+                        "only way to beat the game is to beat him but he is careful with what he does and has "
+                        "a lot of health so good luck", "MasterHand", None, None, "Victory", None)
+
+Victory = Room("Victory", "You did it you won the game I hope this was a good game and not bad anyway thanks"
+               "for playing bye", None, None, None, None, None)
 
 current_node = journey_hallway
 directions = ["north", "south", "east", "west"]
@@ -986,15 +998,13 @@ short_directions = ["n", "s", "e", "w"]
 
 while True:
     print(current_node.desc)
-    print(current_node.name)  # Change
+    print(current_node.name)
     command = input('>_'.lower())
     if command == 'quit':
         quit(0)
     elif command in short_directions:
-        # Look for which command we typed in
         pos = short_directions.index(command)
         command = directions[pos]
-        # change command to be the long form
     if command in directions:
         try:
             current_node.move(command)
