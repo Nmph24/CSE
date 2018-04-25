@@ -821,6 +821,64 @@ class Roy(Fighter):
         target.take_damage(20)
 
 
+class Bosses(object):
+    def __init__(self, name, att1, att2, att3, att4):
+        self.name = name
+        self.hel = 500
+        self.att1 = att1
+        self.att2 = att2
+        self.att3 = att3
+        self.att4 = att4
+
+    def take_damage(self, amt):
+        self.hel -= amt
+
+
+class MasterHand(Bosses):
+    def __init__(self):
+        super(MasterHand, self).__init__("MasterHand", 'Laser', 'Jet', 'Gun', 'Ram')
+
+    def attack1(self, target):
+        print("Master Hand uses his fingers and lasers come out shooting you and burning you ")
+        target.take_damage(35)
+
+    def attack2(self, target):
+        print("Master Hand becomes into a jet like hand and rushes towards you ramming and spinning "
+              "hitting you multiple times")
+        target.take_damage(40)
+
+    def attack3(self, target):
+        print("Master Hand turns into a finger gun and shoots you with and explosive bullet ")
+        target.take_damage(30)
+
+    def attack4(self, target):
+        print("Master Hand turns into a fist and rams into you fast as he can hurting you badly")
+        target.take_damage(45)
+
+
+class CrazyHand(Bosses):
+    def __init__(self):
+        super(CrazyHand, self).__init__("CrazyHand", 'Rocket Drill', 'Bomb', 'Sweep', 'Poke')
+
+    def attack1(self, target):
+        print("Crazy Hand flies from behind the stage and spins around flying towards you and "
+              "hitting you a lot with the spin")
+        target.take_damage(30)
+
+    def attack2(self, target):
+        print("	Crazy Hand drops several bombs hitting you and causing explosive damage")
+        target.take_damage(35)
+
+    def attack3(self, target):
+        print("Crazy Hand sweeps across the stage hitting you while he does it ")
+        target.take_damage(30)
+
+    def attack4(self, target):
+        print("Crazy Hand pokes three times. The first causes darkness, the second causes electrocution,"
+              " and the third poke causes freezing.")
+        target.take_damage(45)
+
+
 class Room(object):
     def __init__(self, name, description, enemey, s, n, e, w):
         self.name = name
