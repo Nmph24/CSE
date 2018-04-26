@@ -607,27 +607,6 @@ class Ganondorf(Fighter):
         target.take_damage(15)
 
 
-class DrMario(Fighter):
-    def __init__(self):
-        super(DrMario, self).__init__("DrMario", 'Megavitamins', 'Super Sheet', 'Super Jump Punch', 'Dr. Tornado')
-
-    def attack1(self, target):
-        print("You throw a vitamin that is much lager than a normal on and you hit your enemy with it")
-        target.take_damage(10)
-
-    def attack2(self, target):
-        print("You take out a sheet and spin your enemy around and hit him with an attack")
-        target.take_damage(15)
-
-    def attack3(self, target):
-        print("You walk up to your enemy and uppercut them into the air doing damage")
-        target.take_damage(20)
-
-    def attack4(self, target):
-        print("You spin like a tornado and trap your enemy inside while hitting them")
-        target.take_damage(15)
-
-
 class YoungLink(Fighter):
     def __init__(self):
         super(YoungLink, self).__init__("YoungLink", 'Bow', 'Bomb', 'Spin Attack', 'Boomerang')
@@ -879,6 +858,35 @@ class CrazyHand(Bosses):
         target.take_damage(45)
 
 
+crazy_hand = CrazyHand()
+master_hand = MasterHand()
+mario = Mario()
+marth = Marth()
+roy = Roy()
+luigi = Luigi()
+peach = Peach()
+pikachu = Pikachu()
+mr_game_and_watch = MrGameAndWatch()
+captain_falcon = CaptainFalcon()
+falco = Falco()
+samus = Samus()
+jigglypuff = Jigglypuff()
+bowser = Bowser()
+fox = Fox()
+ganondorf = Ganondorf()
+yoshi = Yoshi()
+young_link = YoungLink()
+link = Link()
+donkey_kong = DonkeyKong()
+kirby = Kirby()
+ness = Ness()
+sheik = Sheik()
+pichu = Pichu()
+ice_climbers = IceClimbers()
+mewtwo = Mewtwo()
+zelda = Zelda()
+
+
 class Room(object):
     def __init__(self, name, description, enemey, s, n, e, w):
         self.name = name
@@ -914,9 +922,9 @@ FountainOfSleep = Room("FountainOfSleep", "Now you are extra sleepy but you can 
                        "Jigglypuff", "Jigglypuff played by HBox", None, None,
                        "BlueBlues", None)
 
-OliveKingdom = Room("Olive Kingdom", "This is the Olive Kingdom the home of Mario,"
-                    "Dr.Mario, and Luigi and here you will be Fighting Mario so START"
-                    , "Mario", None, None, "OliveKingdom2", None)
+OliveKingdom = Room("Olive Kingdom", "This is the Olive Kingdom the home of Mario, "
+                    "and Luigi and here you will be Fighting Mario so START",
+                    "Mario", None, None, "OliveKingdom2", None)
 
 ColdPlace = Room("Cold Place", "The Coldest place out of this whole world"
                  "which is also mount everest and here you "
@@ -925,7 +933,7 @@ ColdPlace = Room("Cold Place", "The Coldest place out of this whole world"
 
 BlueBlues = Room("Blue Blues", "Now it gets harder from here in blue blues so now "
                  "your up against Sheik played by Plup ,so good luck cause its a top tier",
-                 "Shiek", None, None, "GrenDinoIsland64",None)
+                 "Shiek", None, None, "GrenDinoIsland64", None)
 
 OliveKingdom2 = Room("Olive Kingdom 2", "This is the other side of the Olive Kingdom where you "
                      "are slowly entering the jungle to fight someone else "
