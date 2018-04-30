@@ -12,7 +12,7 @@ class Employee(Person):
         super(Employee, self).__init__(name, age)
         self.skills = computer
 
-    def Coding(self):
+    def coding(self):
         print("You typed code to make something")
 
 
@@ -21,5 +21,5 @@ class Programmer(Employee):
         super(Programmer, self).__init__(name, age, computer)
         self.job = make_code
 
-    def make_program(self):
+    def makeprogram(self):
         print("You have made a program to help your job")

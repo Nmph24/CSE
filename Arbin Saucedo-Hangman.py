@@ -1,5 +1,4 @@
 import random
-import string
 
 """
 A general guide for Hangman
@@ -43,4 +42,3 @@ while guesses_left > 0 and not win:
     if current_guess not in random_word:
         guesses_left -= 1
         print(guesses_left)
-

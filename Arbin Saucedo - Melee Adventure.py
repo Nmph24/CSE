@@ -72,13 +72,13 @@ class HomeRunBat(SuperStrong):
     def __init__(self, name):
         super(HomeRunBat, self).__init__(name, 100)
 
-    def HOMERUN(self):
+    def homerun(self):
         print("YOU HUT A HOME RUN AND DID HUGE DAMAGE TO YOUR ENEMY")
 
 
-class bob_omb(SuperStrong):
+class bobomb(SuperStrong):
     def __init__(self, name):
-        super(bob_omb, self).__init__(name, 80)
+        super(bobomb, self).__init__(name, 80)
 
     def BIGBOOM(self):
         print("You threw a Bob-Omb and did a lat a damege")
@@ -114,11 +114,11 @@ class Fire_flower(MeleeItems):
         print("You burned your enemy it did decent damage")
 
 
-class Beam_sword(MeleeItems):
+class Beamsword(MeleeItems):
     def __init__(self, name):
-        super(Beam_sword, self).__init__(name, 40)
+        super(Beamsword, self).__init__(name, 40)
 
-    def beam_slash(self):
+    def beamslash(self):
         print("You slashed your enemy with a beam it did good damage")
 
 
@@ -127,17 +127,17 @@ class RangedItems(Fighting_item):
         super(RangedItems, self).__init__(name)
 
 
-class green_shell(RangedItems):
+class greenshell(RangedItems):
     def __init__(self, name):
-        super(green_shell, self).__init__(name, 20)
+        super(greenshell, self).__init__(name, 20)
 
     def shelled(self):
         print("You hit your enemy with a green shell nice shot")
 
 
-class ray_gun(RangedItems):
+class raygun(RangedItems):
     def __init__(self, name):
-        super(ray_gun, self).__init__(name, 55)
+        super(raygun, self).__init__(name, 55)
 
     def pew_pew(self):
         print("You keep shooting a your enemy and it did good damage also pew pew")
@@ -885,6 +885,10 @@ pichu = Pichu()
 ice_climbers = IceClimbers()
 mewtwo = Mewtwo()
 zelda = Zelda()
+
+
+def combatsystem():
+
 
 
 class Room(object):

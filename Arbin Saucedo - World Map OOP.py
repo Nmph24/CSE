@@ -34,8 +34,8 @@ FountainOfSleep = Room("FountainOfSleep", "Now you are extra sleepy but you can 
                        "BlueBlues", None)
 
 OliveKingdom = Room("Olive Kingdom", "This is the Olive Kingdom the home of Mario,"
-                    "Dr.Mario, and Luigi and here you will be Fighting Mario so START"
-                    , "Mario", None, None, "OliveKingdom2", None)
+                    "Dr.Mario, and Luigi and here you will be Fighting Mario so START",
+                    "Mario", None, None, "OliveKingdom2", None)
 
 ColdPlace = Room("Cold Place", "The Coldest place out of this whole world"
                  "which is also mount everest and here you "
@@ -44,7 +44,7 @@ ColdPlace = Room("Cold Place", "The Coldest place out of this whole world"
 
 BlueBlues = Room("Blue Blues", "Now it gets harder from here in blue blues so now "
                  "your up against Sheik played by Plup ,so good luck cause its a top tier",
-                 "Shiek", None, None, "GrenDinoIsland64",None)
+                 "Shiek", None, None, "GrenDinoIsland64", None)
 
 OliveKingdom2 = Room("Olive Kingdom 2", "This is the other side of the Olive Kingdom where you "
                      "are slowly entering the jungle to fight someone else "
@@ -131,8 +131,8 @@ Brinstar = Room("Brinstar", "The ship crashed onto a mountain side and now it is
 
 Flatzone = Room("Flatzone", "You somehow made it into a video game inside of a video game and your in a 2d "
                 "area against Mr. Game And Watch who is the owner of the place and he wants you out so you gotta "
-                "go against him now and tip watch out for his judgement hammer it deals crazy damage", "MrGameAndWatch"
-                , "KongoJungle64", None, None, None)
+                "go against him now and tip watch out for his judgement hammer it deals crazy damage", "MrGameAndWatch",
+                "KongoJungle64", None, None, None)
 
 Brinstardepths = Room("Brinstardepths", "You survived against a bounty hunter thats good but you fell far down and "
                       "somehow survived oh well its a game anything can happen anyway your not done fighting there "
@@ -207,4 +207,3 @@ while True:
         print(current_node.north)
         print(current_node.south)
         print(current_node.west)
-

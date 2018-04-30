@@ -6,7 +6,7 @@ class Item(object):
     def __init__(self, name):
         self.name = name
 
-    def pick_up(self):
+    def pickup(self):
         print("You have picked up an item")
 
 
@@ -18,18 +18,18 @@ class Health(Item):
         print("You have healed yourself with healing item")
 
 
-class Fairy_bottle(Health):
+class Fairybottle(Health):
     def __init__(self, name):
-        super(Fairy_bottle, self).__init__(name)
+        super(Fairybottle, self).__init__(name)
 
     def bottle_healing(self, target):
         if target.health < 100:
             target.health += 100
 
 
-class Heart_container(Health):
+class Heartcontainer(Health):
     def __init__(self, name):
-        super(Heart_container, self).__init__(name)
+        super(Heartcontainer, self).__init__(name)
 
     def container_heal(self, target):
         if target.health < 300:
@@ -40,14 +40,14 @@ class Food(Health):
     def __init__(self, name):
         super(Food, self).__init__(name)
 
-    def food_heal(self, target):
+    def foodheal(self, target):
         if target.health < 300:
             target.health += 10
 
 
-class Fighting_item(Item):
+class Fightingitem(Item):
     def __init__(self, name):
-        super(Fighting_item, self).__init__(name)
+        super(Fightingitem, self).__init__(name)
 
 
 class SuperStrong(Fighting_item):
