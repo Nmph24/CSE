@@ -277,27 +277,27 @@ class Peach(Fighter):
 
 class Fox(Fighter):
     def __init__(self):
-        super(Fox, self).__init__("Fox", 'PK Thunder', 'PK Flash', 'PK Fire', 'Bat')
+        super(Fox, self).__init__("Fox", 'Fire Fox', 'Blaster', 'Fox Illusion ', 'Shine COMBO')
 
     def attack1(self, target):
-        print("You use you demon powers to summon a thunder ball you can control and hit your"
-              "self with it and it launches you towards your enemy doing good damage")
-        target.take_damage(20)
+        print("Fox begins to flame up and blast towards your enemy like a rocket and burn you"
+              "with the fire around Fox")
+        target.take_damage(30)
 
     def attack2(self, target):
-        print("You summon a ball of light with your powers and move it towards your "
-              "enemy and it explodes on him doing good damage")
-        target.take_damage(25)
+        print("Fox takes out a blaster and shoots you with it but for some reason it hurts "
+              "more than a normal blaster")
+        target.take_damage(20)
 
     def attack3(self, target):
-        print("You shoot a small fire creating a bigger one when it hit your enemy"
-              "burning him and doing damage")
-        target.take_damage(15)
+        print("Fox runs towards you and before you know it he hits you hard and ends up "
+              "behind you")
+        target.take_damage(35)
 
     def attack4(self, target):
-        print("You grab a bat come up to you enemy and swing it hard and it does "
-              "great damage")
-        target.take_damage(25)
+        print("Fox Runs up and grabs you then throws you and come up to use shine hitting you "
+              "down but he kicks you down when you bounce up doing a lot of damage")
+        target.take_damage(40)
 
 
 class Yoshi(Fighter):
@@ -652,7 +652,7 @@ class Falco(Fighter):
 
     def attack4(self, target):
         print("You shoot your enemy with your blaster and then you take out your reflector that "
-              "can damage your enemy so you use it asa shine it hits you enemy and land a great combo")
+              "can damage your enemy so you use it as a shine it hits you enemy and land a great combo")
         target.take_damage(35)
 
 
@@ -858,6 +858,85 @@ class CrazyHand(Bosses):
         target.take_damage(45)
 
 
+class MarthBoss(Bosses):
+    def __init__(self):
+        super(MarthBoss, self).__init__("Marth", 'Shield Breaker', 'Dancing Blade', 'Dolphin Slash', 'Counter')
+
+    def attack1(self, target):
+        print("You hold your sword over your head and with full power you thrust your sword at your "
+              "enemy and it hit them hard")
+        target.take_damage(40)
+
+    def attack2(self, target):
+        print("You do a sequence of many slashes like a dance hitting your enemy multiple times ")
+        target.take_damage(30)
+
+    def attack3(self, target):
+        print("You jump up high with a quick uppercut with your sword at full speed slashing "
+              "your enemy ")
+        target.take_damage(35)
+
+    def attack4(self, target):
+        print("You stand still and your enemy rushes at you and you counter it right before he hits "
+              "you ")
+        target.take_damage(30)
+
+
+class SheikBoss(Bosses):
+    def __init__(self):
+        super(SheikBoss, self).__init__("Sheik", 'Needle Strom', 'Chain', 'Vanish', 'Bouncing Fish')
+
+    def attack1(self, target):
+        print("Sheik grabs some small throwing knifes one at a time and then rapidly throw it "
+              "at you cutting and doing damage")
+        target.take_damage(25)
+
+    def attack2(self, target):
+        print("Sheik throws a chain at you and it has a electric tip it hits you "
+              "with a electrocuting attack ")
+        target.take_damage(30)
+
+    def attack3(self, target):
+        print("Sheik vanishes into thin air but appears in front of you and before sheik appears"
+              "there is a small explosion that hurts you with flame damage")
+        target.take_damage(40)
+
+    def attack4(self, target):
+        print("You jump up high into the air and like a fish you use your legs to swing your "
+              "self towards your enemy and hitting them with your legs and a bouncing fish")
+        target.take_damage(35)
+
+
+class FoxBoss(Bosses):
+    def __init__(self):
+        super(FoxBoss, self).__init__("Fox", 'Fire Fox', 'Blaster', 'Fox Illusion ', 'Shine COMBO')
+
+    def attack1(self, target):
+        print("Fox begins to flame up and blast towards your enemy like a rocket and burn you"
+              "with the fire around Fox")
+        target.take_damage(30)
+
+    def attack2(self, target):
+        print("Fox takes out a blaster and shoots you with it but for some reason it hurts "
+              "more than a normal blaster")
+        target.take_damage(20)
+
+    def attack3(self, target):
+        print("Fox runs towards you and before you know it he hits you hard and ends up "
+              "behind you")
+        target.take_damage(35)
+
+    def attack4(self, target):
+        print("Fox Runs up and grabs you then throws you and come up to use shine hitting you "
+              "down but he kicks you down when you bounce up doing a lot of damage")
+        target.take_damage(40)
+
+
+player = None
+
+marth_boss = MarthBoss()
+sheik_boss = SheikBoss()
+fox_boss = FoxBoss()
 crazy_hand = CrazyHand()
 master_hand = MasterHand()
 mario = Mario()
@@ -887,8 +966,9 @@ mewtwo = Mewtwo()
 zelda = Zelda()
 
 
-def combatsystem():
-
+def combat_system(enemy):
+    # while
+    pass
 
 
 class Room(object):
@@ -1024,8 +1104,8 @@ Brinstar = Room("Brinstar", "The ship crashed onto a mountain side and now it is
 
 Flatzone = Room("Flatzone", "You somehow made it into a video game inside of a video game and your in a 2d "
                 "area against Mr. Game And Watch who is the owner of the place and he wants you out so you gotta "
-                "go against him now and tip watch out for his judgement hammer it deals crazy damage", "MrGameAndWatch"
-                , "KongoJungle64", None, None, None)
+                "go against him now and tip watch out for his judgement hammer it deals crazy damage", "MrGameAndWatch",
+                "KongoJungle64", None, None, None)
 
 Brinstardepths = Room("Brinstardepths", "You survived against a bounty hunter thats good but you fell far down and "
                       "somehow survived oh well its a game anything can happen anyway your not done fighting there "
@@ -1065,7 +1145,25 @@ Victory = Room("Victory", "You did it you won the game I hope this was a good ga
 current_node = journey_hallway
 directions = ["north", "south", "east", "west"]
 short_directions = ["n", "s", "e", "w"]
+character_selection = [mario, marth, roy, luigi, peach, pikachu, mr_game_and_watch, captain_falcon, falco, samus,
+                       jigglypuff, bowser, fox, ganondorf, yoshi, young_link, link, donkey_kong, kirby, ness, sheik,
+                       pichu, ice_climbers, mewtwo, zelda]
+# Player Selection
 
+while player is None:
+    print("Who do you want to play as?")
+    for num, option in enumerate(character_selection):
+        print(str(num + 1) + ": " + option.name)
+    try:
+        character_index = int(input(">_"))
+        player = character_selection[character_index - 1]
+    except ValueError:
+        print("Type in a valid number")
+    except IndexError:
+        print("Choose a valid number")
+
+print(player.name)
+# Game Runner
 while True:
     print(current_node.desc)
     print(current_node.name)
