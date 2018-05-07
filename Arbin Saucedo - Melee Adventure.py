@@ -14,9 +14,9 @@ class Health(Item):
         print("You have healed yourself with healing item")
 
 
-class Fairy_bottle(Health):
+class Fairybottle(Health):
     def __init__(self, name):
-        super(Fairy_bottle, self).__init__(name)
+        super(Fairybottle, self).__init__(name)
 
     def bottle_healing(self, target):
         if target.health < 100:
@@ -177,7 +177,7 @@ class DL64key(Keys):
     def __init__(self, name):
         super(DL64key, self).__init__(name)
 
-    def closedl64(self):
+    def dl64(self):
         print("You have picked up the key that gets you closer to the end")
 
 
@@ -185,15 +185,19 @@ class KJ64key(Keys):
     def __init__(self, name):
         super(KJ64key, self).__init__(name)
 
-    def closekj64(self):
+    def kj64(self):
         print("You are getting closer to the end")
+
+    def use(self):
+        if current_node == correct room:
+            current_node.west = newroom
 
 
 class GDI(Keys):
     def __init__(self, name):
         super(GDI, self).__init__(name)
 
-    def closegdi(self):
+    def gdi(self):
         print("There are other keys but if you find them then the end is close")
 
 
@@ -972,10 +976,10 @@ def combat_system(enemy):
 
 
 class Room(object):
-    def __init__(self, name, description, enemey, s, n, e, w):
+    def __init__(self, name, description, enemy, s, n, e, w):
         self.name = name
         self.desc = description
-        self.fighters = enemey
+        self.fighters = enemy
         self.north = n
         self.south = s
         self.east = e
@@ -986,13 +990,15 @@ class Room(object):
         current_node = globals()[getattr(self, direction)]
 
 
+inventory = [""]
+
 journey_hallway = Room("Journey Hall", "You have arrived at a hallway that will lead you into "
                        "many battles in this world and you need show your the best fighter out there",
                        None, 'Temple', None, 'TangerineCastle', None)
 
 Temple = Room("Temple", "This Temple is where your first fight begins"
               "with Princess Zelda good luck with the fight and the others that come with many more"
-              "fighters you will face", "Zelda", "ColdPlace", None, "Fountain_Of_Sleep",
+              "fighters you will face", "Zelda", "ColdPlace", None, "FountainOfSleep",
               None)
 
 TangerineCastle = Room("Tangerine Castle", "The Castle of the Olive Kingdom and your first fight "
@@ -1032,7 +1038,7 @@ LoudCity = Room("Loud City", "Well your in the city know and well this place loo
 GrenDinoIsland64 = Room("Gren Dino Island 64", "SOOO you close to finishing your rage inducing trip"
                         "but you still have another one after this sooo, well never mind that but now you "
                         "are up against Marth so don't let him grab you from across the stage",
-                        "Marth", None, None, "Dream_Land64", None)
+                        "Marth", None, None, "DreamLand64", None)
 
 JungleJapes = Room("Jungle Japs", "So they're finally here, performing for you If you know the words"
                    "you can join in to, Put you hand together, if you want to clap as we take you "
@@ -1049,7 +1055,7 @@ Small_Red = Room("Small Red", "Small Red is a car not a map I don't know how you
 Dream_Land64 = Room("Dream Land 64", "Well you got 2 rooms left if you have all the keys that is anyway"
                     "the last 2 are both bosses but this one is like a semi-boss so good luck cause "
                     "now you are up against Fox", "Fox", None,
-                    "Final_Hallway", "Key_Room", None)
+                    "FinalHallway", "KeyRoom", None)
 
 Kongo_Jungle = Room("Kongo Jungle", "You mange to beat up DK but no Diddy Kong is mad at you so fight em cause"
                     "that is the only way to resolve anything in this world so get ready to fight ",
