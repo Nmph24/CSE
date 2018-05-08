@@ -173,33 +173,51 @@ class Keys(Item):
         super(Keys, self).__init__(name)
 
 
-class DL64key(Keys):
-    def __init__(self, name):
-        super(DL64key, self).__init__(name)
+class DL64Key(Keys):
+    def __init__(self):
+        super(DL64Key, self).__init__("DL64Key")
 
     def dl64(self):
         print("You have picked up the key that gets you closer to the end")
 
+    def use(self):
+        if current_node == DreamLand64:
+            current_node.north = TheEndHall
+        else:
+            print("You don't have this key yet")
 
-class KJ64key(Keys):
-    def __init__(self, name):
-        super(KJ64key, self).__init__(name)
+
+class KJ64Key(Keys):
+    def __init__(self):
+        super(KJ64Key, self).__init__("KJ64Key")
 
     def kj64(self):
         print("You are getting closer to the end")
 
     def use(self):
-        if current_node == correct room:
-            current_node.west = newroom
+        if current_node == KongoJungle64:
+            current_node.north = TheEndHall
+        else:
+            print("You don't have this key yet")
 
 
-class GDI(Keys):
-    def __init__(self, name):
-        super(GDI, self).__init__(name)
+class GDIKey(Keys):
+    def __init__(self):
+        super(GDIKey, self).__init__("GDIKey")
 
     def gdi(self):
         print("There are other keys but if you find them then the end is close")
 
+    def use(self):
+        if current_node == GrenDinoIsland:
+            current_node.north = TheEndHall
+        else:
+            print("You don't have this key yet")
+
+
+DGIKey = GDIKey()
+KJ64Key = KJ64Key()
+DL64Key = DL64Key()
 
 class Fighter(object):
     def __init__(self, name, att1, att2, att3, att4):
@@ -990,7 +1008,7 @@ class Room(object):
         current_node = globals()[getattr(self, direction)]
 
 
-inventory = [""]
+inventory = ['']
 
 journey_hallway = Room("Journey Hall", "You have arrived at a hallway that will lead you into "
                        "many battles in this world and you need show your the best fighter out there",
@@ -1052,10 +1070,10 @@ Small_Red = Room("Small Red", "Small Red is a car not a map I don't know how you
                  "Good luck because this man is really buff and has a very strong Knee so watch out for that",
                  "Captain Falcon", None, None, "Five_Sides", None)
 
-Dream_Land64 = Room("Dream Land 64", "Well you got 2 rooms left if you have all the keys that is anyway"
-                    "the last 2 are both bosses but this one is like a semi-boss so good luck cause "
-                    "now you are up against Fox", "Fox", None,
-                    "FinalHallway", "KeyRoom", None)
+DreamLand64 = Room("Dream Land 64", "Well you got 2 rooms left if you have all the keys that is anyway"
+                   "the last 2 are both bosses but this one is like a semi-boss so good luck cause "
+                   "now you are up against Fox", "Fox", None,
+                   "FinalHallway", "KeyRoom", None)
 
 Kongo_Jungle = Room("Kongo Jungle", "You mange to beat up DK but no Diddy Kong is mad at you so fight em cause"
                     "that is the only way to resolve anything in this world so get ready to fight ",

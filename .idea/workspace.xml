@@ -14,8 +14,8 @@
       <file leaf-file-name="Arbin Saucedo - Melee Adventure.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Arbin Saucedo - Melee Adventure.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17969">
-              <caret line="1057" column="24" lean-forward="true" selection-start-line="1057" selection-start-column="24" selection-end-line="1057" selection-end-column="24" />
+            <state relative-caret-position="498">
+              <caret line="219" column="18" lean-forward="false" selection-start-line="219" selection-start-column="18" selection-end-line="219" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -120,6 +120,7 @@
       <find>SHine</find>
       <find>Ness</find>
       <find>Fox</find>
+      <find>health</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -713,8 +714,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Arbin Saucedo - Melee Adventure.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17969">
-          <caret line="1057" column="24" lean-forward="true" selection-start-line="1057" selection-start-column="24" selection-end-line="1057" selection-end-column="24" />
+        <state relative-caret-position="498">
+          <caret line="219" column="18" lean-forward="false" selection-start-line="219" selection-start-column="18" selection-end-line="219" selection-end-column="18" />
           <folding />
         </state>
       </provider>
