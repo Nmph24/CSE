@@ -15,157 +15,156 @@ class Health(Item):
 
 
 class Fairybottle(Health):
-    def __init__(self, name):
-        super(Fairybottle, self).__init__(name)
+    def __init__(self):
+        super(Fairybottle, self).__init__("Fairybottle")
 
-    def bottle_healing(self, target):
+    def fairy(self, target):
         if target.health < 100:
             target.health += 100
 
 
-class Heart_container(Health):
-    def __init__(self, name):
-        super(Heart_container, self).__init__(name)
+class Heartcontainer(Health):
+    def __init__(self):
+        super(Heartcontainer, self).__init__("Heartcontainer")
 
-    def container_heal(self, target):
+    def heart(self, target):
         if target.health < 300:
             target.health += 100
 
 
 class Food(Health):
-    def __init__(self, name):
-        super(Food, self).__init__(name)
+    def __init__(self):
+        super(Food, self).__init__("Food")
 
-    def food_heal(self, target):
+    def eat(self, target):
         if target.health < 300:
             target.health += 10
 
 
-class Fighting_item(Item):
+class Fightingitem(Item):
     def __init__(self, name):
-        super(Fighting_item, self).__init__(name)
+        super(Fightingitem, self).__init__(name)
 
 
-class SuperStrong(Fighting_item):
+class SuperStrong(Fightingitem):
     def __init__(self, name, damage):
         super(SuperStrong, self).__init__(name)
 
 
-class xbomb(SuperStrong):
-    def __init__(self, name):
-        super(xbomb, self).__init__(name, 65)
+class Xbomb(SuperStrong):
+    def __init__(self):
+        super(Xbomb, self).__init__("Xbomb", 65)
 
-    def xboom(self):
-        print("X-Bomb has exploded and damaged you damaged enemy")
+    def throw(self):
+        print("You threw the x-bomb and a plus sign of fire came out of the x-bomb")
 
 
 class Masterball(SuperStrong):
-    def __init__(self, name):
-        super(Masterball, self).__init__(name, 80)
+    def __init__(self):
+        super(Masterball, self).__init__("Masterball", 80)
 
-    def legendarypoke(self):
-        print("You have spawned in a legendary pokemon that hurts your "
-              "enemy badly")
+    def throw(self):
+        print("You threw the masterball and a legendary pokemon was summoned "
+              "and it attacked your enemy ")
 
 
 class HomeRunBat(SuperStrong):
-    def __init__(self, name):
-        super(HomeRunBat, self).__init__(name, 100)
+    def __init__(self):
+        super(HomeRunBat, self).__init__("HomeRunBat", 100)
 
     def homerun(self):
-        print("YOU HUT A HOME RUN AND DID HUGE DAMAGE TO YOUR ENEMY")
+        print("Home RUN")
 
 
-class bobomb(SuperStrong):
-    def __init__(self, name):
-        super(bobomb, self).__init__(name, 80)
+class Bobomb(SuperStrong):
+    def __init__(self):
+        super(Bobomb, self).__init__("Bobomb", 80)
 
-    def BIGBOOM(self):
-        print("You threw a Bob-Omb and did a lat a damege")
+    def boom(self):
+        print("You threw a Bob-Omb and it went boom")
 
 
 class SmashBall(SuperStrong):
-    def __init__(self, name):
-        super(SmashBall, self).__init__(name, 150)
+    def __init__(self):
+        super(SmashBall, self).__init__("Smashball", 150)
 
-    def SMASH(self):
+    def Finalsmash(self):
         print("You have Unleashed your final move on your opponent "
-              "and caused MASSIVE Damage")
+              "as a dramatic scene of combat occurs you enemy is taking tons of damage")
 
 
-class MeleeItems(Fighting_item):
+class MeleeItems(Fightingitem):
     def __init__(self, name, damage):
         super(MeleeItems, self).__init__(name)
 
 
 class Fan(MeleeItems):
-    def __init__(self, name):
-        super(Fan, self).__init__(name, 15)
+    def __init__(self):
+        super(Fan, self).__init__("Fan", 15)
 
-    def wak(self):
+    def hit(self):
         print("You have waked the Hecc out of your enemy")
 
 
-class Fire_flower(MeleeItems):
-    def __init__(self, name):
-        super(Fire_flower, self).__init__(name, 30)
+class Fireflower(MeleeItems):
+    def __init__(self):
+        super(Fireflower, self).__init__("Fireflower", 30)
 
     def burn(self):
         print("You burned your enemy it did decent damage")
 
 
 class Beamsword(MeleeItems):
-    def __init__(self, name):
-        super(Beamsword, self).__init__(name, 40)
+    def __init__(self):
+        super(Beamsword, self).__init__("Beamsword", 40)
 
-    def beamslash(self):
+    def slash(self):
         print("You slashed your enemy with a beam it did good damage")
 
 
-class RangedItems(Fighting_item):
+class RangedItems(Fightingitem):
     def __init__(self, name, damage):
         super(RangedItems, self).__init__(name)
 
 
-class greenshell(RangedItems):
-    def __init__(self, name):
-        super(greenshell, self).__init__(name, 20)
+class Greenshell(RangedItems):
+    def __init__(self):
+        super(Greenshell, self).__init__("Greenshell", 20)
 
-    def shelled(self):
+    def throw(self):
         print("You hit your enemy with a green shell nice shot")
 
 
-class raygun(RangedItems):
-    def __init__(self, name):
-        super(raygun, self).__init__(name, 55)
+class Raygun(RangedItems):
+    def __init__(self):
+        super(Raygun, self).__init__("Raygun", 55)
 
-    def pew_pew(self):
+    def pow(self):
         print("You keep shooting a your enemy and it did good damage also pew pew")
 
 
 class Freezie(RangedItems):
-    def __init__(self, name):
-        super(Freezie, self).__init__(name, 10)
+    def __init__(self):
+        super(Freezie, self).__init__("Freezie", 10)
 
     def frozen(self):
         print("You have froze your enemey attack him with what you got")
 
 
 class Pokeball(RangedItems):
-    def __init__(self, name):
-        super(Pokeball, self).__init__(name, 75)
+    def __init__(self):
+        super(Pokeball, self).__init__("Pokeball", 75)
 
     def pokemon(self):
         print("You threw the pokeball and a pokemon came out and attacked your enemey")
 
 
 class MrSaturn(RangedItems):
-    def __init__(self, name):
-        super(MrSaturn, self).__init__(name, 5)
+    def __init__(self):
+        super(MrSaturn, self).__init__("MrSaturn", 5)
 
-    def stun(self):
-        print("You threw Mr.Saturn and it hit your enemy if he had his shield on he was stunned"
-              "if not it didn't do much damage")
+    def throw(self):
+        print("You threw Mr.Saturn and it hit your enemy but it didn't do much ")
 
 
 class Keys(Item):
@@ -177,9 +176,6 @@ class DL64Key(Keys):
     def __init__(self):
         super(DL64Key, self).__init__("DL64Key")
 
-    def dl64(self):
-        print("You have picked up the key that gets you closer to the end")
-
     def use(self):
         if current_node == DreamLand64:
             current_node.north = TheEndHall
@@ -190,9 +186,6 @@ class DL64Key(Keys):
 class KJ64Key(Keys):
     def __init__(self):
         super(KJ64Key, self).__init__("KJ64Key")
-
-    def kj64(self):
-        print("You are getting closer to the end")
 
     def use(self):
         if current_node == KongoJungle64:
@@ -218,6 +211,22 @@ class GDIKey(Keys):
 DGIKey = GDIKey()
 KJ64Key = KJ64Key()
 DL64Key = DL64Key()
+mrsaturn = MrSaturn()
+smashball = SmashBall()
+masterball = Masterball
+pokeball = Pokeball()
+homerunbat = HomeRunBat()
+freezie = Freezie()
+beamsword = Beamsword()
+xbomb = Xbomb()
+bobomb = Bobomb()
+fan = Fan()
+fairybottle = Fairybottle()
+heartcontainer = Heartcontainer()
+food = Food()
+raygun = Raygun()
+greenshell = Greenshell()
+
 
 class Fighter(object):
     def __init__(self, name, att1, att2, att3, att4):
