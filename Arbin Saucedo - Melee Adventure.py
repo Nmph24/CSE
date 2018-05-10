@@ -1,3 +1,8 @@
+import random
+
+accuracy = []
+
+
 class Item(object):
     def __init__(self, name):
         self.name = name
@@ -7,7 +12,7 @@ class Item(object):
 
 
 class Health(Item):
-    def __init__(self, name):
+    def __init__(self, name, use):
         super(Health, self).__init__(name)
 
     def heal(self):
@@ -16,7 +21,7 @@ class Health(Item):
 
 class Fairybottle(Health):
     def __init__(self):
-        super(Fairybottle, self).__init__("Fairybottle")
+        super(Fairybottle, self).__init__("Fairybottle", 1)
 
     def fairy(self, target):
         if target.health < 100:
@@ -25,7 +30,7 @@ class Fairybottle(Health):
 
 class Heartcontainer(Health):
     def __init__(self):
-        super(Heartcontainer, self).__init__("Heartcontainer")
+        super(Heartcontainer, self).__init__("Heartcontainer", 1)
 
     def heart(self, target):
         if target.health < 300:
@@ -34,7 +39,7 @@ class Heartcontainer(Health):
 
 class Food(Health):
     def __init__(self):
-        super(Food, self).__init__("Food")
+        super(Food, self).__init__("Food", 1)
 
     def eat(self, target):
         if target.health < 300:
@@ -42,13 +47,13 @@ class Food(Health):
 
 
 class Fightingitem(Item):
-    def __init__(self, name):
-        super(Fightingitem, self).__init__(name)
+    def __init__(self, name, use):
+        super(Fightingitem, self).__init__(name,)
 
 
 class SuperStrong(Fightingitem):
     def __init__(self, name, damage):
-        super(SuperStrong, self).__init__(name)
+        super(SuperStrong, self).__init__(name, 1)
 
 
 class Xbomb(SuperStrong):
@@ -95,7 +100,7 @@ class SmashBall(SuperStrong):
 
 class MeleeItems(Fightingitem):
     def __init__(self, name, damage):
-        super(MeleeItems, self).__init__(name)
+        super(MeleeItems, self).__init__(name, 3)
 
 
 class Fan(MeleeItems):
@@ -124,7 +129,7 @@ class Beamsword(MeleeItems):
 
 class RangedItems(Fightingitem):
     def __init__(self, name, damage):
-        super(RangedItems, self).__init__(name)
+        super(RangedItems, self).__init__(name, 2)
 
 
 class Greenshell(RangedItems):
@@ -229,7 +234,7 @@ greenshell = Greenshell()
 
 
 class Fighter(object):
-    def __init__(self, name, att1, att2, att3, att4):
+    def __init__(self, name, att1, att2, att3, att4, use1, use2, use3, use4):
         self.name = name
         self.hel = 300
         self.att1 = att1
@@ -243,7 +248,8 @@ class Fighter(object):
 
 class Mario(Fighter):
     def __init__(self):
-        super(Mario, self).__init__("Mario", 'Fireball', 'Super Jump Punch', 'Cape', 'Mario Tornado')
+        super(Mario, self).__init__("Mario", 'Fireball', 'Super Jump Punch', 'Cape', 'Mario Tornado', 20, 15, 25,
+                                    15)
 
     def attack1(self, target):
         print("You have hit your enemy with a fireball you did some damage")
@@ -264,7 +270,8 @@ class Mario(Fighter):
 
 class Luigi(Fighter):
     def __init__(self):
-        super(Luigi, self).__init__("Luigi", 'Green Fireball', 'Super Jump Punch', 'Green Misfire', 'Luigi Cyclone')
+        super(Luigi, self).__init__("Luigi", 'Green Fireball', 'Super Jump Punch', 'Green Misfire', 'Luigi Cyclone',
+                                    20, 15, 10, 15)
 
     def attack1(self, target):
         print("You have hit your enemy with a fireball that spins in one direction you did some damage")
@@ -285,7 +292,8 @@ class Luigi(Fighter):
 
 class Peach(Fighter):
     def __init__(self):
-        super(Peach, self).__init__("Peach", 'Toad', 'Peach Bomber', 'Peach Parasol', 'Vegetable')
+        super(Peach, self).__init__("Peach", 'Toad', 'Peach Bomber', 'Peach Parasol', 'Vegetable',
+                                    15, 25, 15, 30)
 
     def attack1(self, target):
         print("You took out toad and contured the attack it did great damage"
@@ -308,7 +316,8 @@ class Peach(Fighter):
 
 class Fox(Fighter):
     def __init__(self):
-        super(Fox, self).__init__("Fox", 'Fire Fox', 'Blaster', 'Fox Illusion ', 'Shine COMBO')
+        super(Fox, self).__init__("Fox", 'Fire Fox', 'Blaster', 'Fox Illusion ', 'Shine COMBO',
+                                  )
 
     def attack1(self, target):
         print("Fox begins to flame up and blast towards your enemy like a rocket and burn you"
