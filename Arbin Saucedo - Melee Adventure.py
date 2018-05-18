@@ -1,14 +1,12 @@
 import random
 
-accuracy = []
-
 
 class Item(object):
     def __init__(self, name):
         self.name = name
 
     def pick_up(self):
-        print("You have picked up an item")
+        print("You have picked up %s" % self.name)
 
 
 class Health(Item):
@@ -16,7 +14,7 @@ class Health(Item):
         super(Health, self).__init__(name)
 
     def heal(self):
-        print("You have healed yourself with healing item")
+        print("You have healed yourself with %s" % self.name)
 
 
 class Fairybottle(Health):
@@ -35,7 +33,7 @@ class Heartcontainer(Health):
     def heart(self, target):
         if target.health < 300:
             target.health += 100
-
+        print("")
 
 class Food(Health):
     def __init__(self):
@@ -234,13 +232,14 @@ greenshell = Greenshell()
 
 
 class Fighter(object):
-    def __init__(self, name, att1, att2, att3, att4, use1, use2, use3, use4):
+    def __init__(self, name, att1, att2, att3, att4, accuracy):
         self.name = name
         self.hel = 300
         self.att1 = att1
         self.att2 = att2
         self.att3 = att3
         self.att4 = att4
+        self.accuracy = accuracy
 
     def take_damage(self, amt):
         self.hel -= amt
@@ -248,8 +247,7 @@ class Fighter(object):
 
 class Mario(Fighter):
     def __init__(self):
-        super(Mario, self).__init__("Mario", 'Fireball', 'Super Jump Punch', 'Cape', 'Mario Tornado', 20, 15, 25,
-                                    15)
+        super(Mario, self).__init__("Mario", 'Fireball', 'Super Jump Punch', 'Cape', 'Mario Tornado', )
 
     def attack1(self, target):
         print("You have hit your enemy with a fireball you did some damage")
@@ -270,8 +268,7 @@ class Mario(Fighter):
 
 class Luigi(Fighter):
     def __init__(self):
-        super(Luigi, self).__init__("Luigi", 'Green Fireball', 'Super Jump Punch', 'Green Misfire', 'Luigi Cyclone',
-                                    20, 15, 10, 15)
+        super(Luigi, self).__init__("Luigi", 'Green Fireball', 'Super Jump Punch', 'Green Misfire', 'Luigi Cyclone')
 
     def attack1(self, target):
         print("You have hit your enemy with a fireball that spins in one direction you did some damage")
@@ -292,8 +289,7 @@ class Luigi(Fighter):
 
 class Peach(Fighter):
     def __init__(self):
-        super(Peach, self).__init__("Peach", 'Toad', 'Peach Bomber', 'Peach Parasol', 'Vegetable',
-                                    15, 25, 15, 30)
+        super(Peach, self).__init__("Peach", 'Toad', 'Peach Bomber', 'Peach Parasol', 'Vegetable')
 
     def attack1(self, target):
         print("You took out toad and contured the attack it did great damage"
@@ -316,8 +312,7 @@ class Peach(Fighter):
 
 class Fox(Fighter):
     def __init__(self):
-        super(Fox, self).__init__("Fox", 'Fire Fox', 'Blaster', 'Fox Illusion ', 'Shine COMBO',
-                                  )
+        super(Fox, self).__init__("Fox", 'Fire Fox', 'Blaster', 'Fox Illusion ', 'Shine COMBO')
 
     def attack1(self, target):
         print("Fox begins to flame up and blast towards your enemy like a rocket and burn you"
@@ -438,8 +433,8 @@ class Samus(Fighter):
         super(Samus, self).__init__("Samus", 'Charge Shot', 'Missile', 'Screw Attack', 'Cover Fire')
 
     def attack1(self, target):
-        print("You charge up a energy ball with your special suit and shoot it at"
-              "you enemy and did great damage")
+        print("%s charge up a energy ball with your special suit and shoot it at"
+              "you enemy and did great damage" % self.name)
         target.take_damage(30)
 
     def attack2(self, target):
@@ -509,8 +504,8 @@ class Jigglypuff(Fighter):
         super(Jigglypuff, self).__init__("Jigglypuff", 'R E S T', 'Rollout', 'Pound', 'Back Air')
 
     def attack1(self, target):
-        print("You walk up to your enemy and rest in front of your enemy but "
-              "your special power launch your enemy and he took a lot of damage")
+        print("You sleep but your a pokemon of course sleeping is going to do damage and so "
+              "your enemy goes flying because you slept next to them weird right ")
         target.take_damage(35)
 
     def attack2(self, target):
@@ -653,7 +648,7 @@ class YoungLink(Fighter):
 
     def attack1(self, target):
         print("You take a bow out but you aren't as strong as link so your arrow aims "
-              "high but you still manage to hit your enemy ")
+              "higher and out of balance but you still manage to hit your enemy ")
         target.take_damage(15)
 
     def attack2(self, target):
@@ -744,7 +739,7 @@ class Pichu(Fighter):
 
 class IceClimbers(Fighter):
     def __init__(self):
-        super(IceClimbers, self).__init__("IceClimbers", 'Ice Shot', 'Squall Hammer', 'Belay Combo', 'Blizzard')
+        super(IceClimbers, self).__init__("IceClimbers", 'Ice Shot', 'Squall Hammer', 'Belay Combo', 'Blizzard', )
 
     def attack1(self, target):
         print("You shoot an ice block at your enemy and it hit them hard")
@@ -775,8 +770,8 @@ class MrGameAndWatch(Fighter):
         target.take_damage(10)
 
     def attack2(self, target):
-        print("You take out a judgement card and it shows the number nine the strongest"
-              "out of all and you pull out a hammer and it hits your enemy with a great strength")
+        print("%s take out a judgement card and it shows the number nine the strongest"
+              "out of all and you pull out a hammer and it hits your enemy with a great strength", % self.name)
         target.take_damage(40)
 
     def attack3(self, target):
@@ -1012,7 +1007,7 @@ def combat_system(enemy):
 
 
 class Room(object):
-    def __init__(self, name, description, enemy, s, n, e, w):
+    def __init__(self, name, description, enemy, s, n, e, w, items):
         self.name = name
         self.desc = description
         self.fighters = enemy
@@ -1020,169 +1015,168 @@ class Room(object):
         self.south = s
         self.east = e
         self.west = w
+        self.items = items
 
     def move(self, direction):
         global current_node
         current_node = globals()[getattr(self, direction)]
 
 
-inventory = ['']
-
 journey_hallway = Room("Journey Hall", "You have arrived at a hallway that will lead you into "
                        "many battles in this world and you need show your the best fighter out there",
-                       None, 'Temple', None, 'TangerineCastle', None)
+                       None, 'Temple', None, 'TangerineCastle', None, [])
 
 Temple = Room("Temple", "This Temple is where your first fight begins"
               "with Princess Zelda good luck with the fight and the others that come with many more"
               "fighters you will face", "Zelda", "ColdPlace", None, "FountainOfSleep",
-              None)
+              None, [])
 
 TangerineCastle = Room("Tangerine Castle", "The Castle of the Olive Kingdom and your first fight "
                        "with Princess Tangerine", "Princess Peach", "Fountain_Of_Sleep", None,
-                       "Olive_Kingdom", None)
+                       "Olive_Kingdom", None, [])
 
 FountainOfSleep = Room("FountainOfSleep", "Now you are extra sleepy but you can fight still "
                        "so be happy for that but you now you up against "
                        "a harder characters because you have chosen the short "
                        "but harder path to the end so you are up against "
                        "Jigglypuff", "Jigglypuff played by HBox", None, None,
-                       "BlueBlues", None)
+                       "BlueBlues", None, [])
 
 OliveKingdom = Room("Olive Kingdom", "This is the Olive Kingdom the home of Mario, "
                     "and Luigi and here you will be Fighting Mario so START",
-                    "Mario", None, None, "OliveKingdom2", None)
+                    "Mario", None, None, "OliveKingdom2", None, [])
 
 ColdPlace = Room("Cold Place", "The Coldest place out of this whole world"
                  "which is also mount everest and here you "
                  "are fighting 2 people that are one fighther"
-                 "Ice Climbers", "Ice Climbers", "LoudCity", None, None, None)
+                 "Ice Climbers", "Ice Climbers", "LoudCity", None, None, None, [])
 
 BlueBlues = Room("Blue Blues", "Now it gets harder from here in blue blues so now "
                  "your up against Sheik played by Plup ,so good luck cause its a top tier",
-                 "Shiek", None, None, "GrenDinoIsland64", None)
+                 "Shiek", None, None, "GrenDinoIsland64", None, [])
 
 OliveKingdom2 = Room("Olive Kingdom 2", "This is the other side of the Olive Kingdom where you "
                      "are slowly entering the jungle to fight someone else "
-                     "but for now you up against Luigi", "Luigi", None, None, "Jungle_Japes", None)
+                     "but for now you up against Luigi", "Luigi", None, None, "Jungle_Japes", None, [])
 
 LoudCity = Room("Loud City", "Well your in the city know and well this place looks like it has more of "
                 "an advance in car technology and there is still fighters here so don't"
                 "let the cars distract you anyways now your up against Pichu a small mice but "
                 "don't let that fool you he still packs a good punch", "Pichu", "Small_Red",
-                None, None, None)
+                None, None, None, [])
 
 GrenDinoIsland64 = Room("Gren Dino Island 64", "SOOO you close to finishing your rage inducing trip"
                         "but you still have another one after this sooo, well never mind that but now you "
                         "are up against Marth so don't let him grab you from across the stage",
-                        "Marth", None, None, "DreamLand64", None)
+                        "Marth", None, None, "DreamLand64", None, [])
 
 JungleJapes = Room("Jungle Japs", "So they're finally here, performing for you If you know the words"
                    "you can join in to, Put you hand together, if you want to clap as we take you "
                    "through this monkey rap DK DONKEY KONG. Well you may have guessed it already that"
                    "your up against Donkey Kong king of the jungle so get ready to fight",
-                   "Donkey Kong", None, None, "Kongo_Jungle", None)
+                   "Donkey Kong", None, None, "Kongo_Jungle", None, [])
 
 
 Small_Red = Room("Small Red", "Small Red is a car not a map I don't know how you ended up on this car"
                  "but I am pretty sure the driver is kinda mad and he is well then there is Captain Falcon"
                  "Good luck because this man is really buff and has a very strong Knee so watch out for that",
-                 "Captain Falcon", None, None, "Five_Sides", None)
+                 "Captain Falcon", None, None, "Five_Sides", None, [])
 
 DreamLand64 = Room("Dream Land 64", "Well you got 2 rooms left if you have all the keys that is anyway"
                    "the last 2 are both bosses but this one is like a semi-boss so good luck cause "
                    "now you are up against Fox", "Fox", None,
-                   "FinalHallway", "KeyRoom", None)
+                   "FinalHallway", "KeyRoom", None, [])
 
 Kongo_Jungle = Room("Kongo Jungle", "You mange to beat up DK but no Diddy Kong is mad at you so fight em cause"
                     "that is the only way to resolve anything in this world so get ready to fight ",
-                    "Diddy Kong", None, "Good_Bay", None, None)
+                    "Diddy Kong", None, "Good_Bay", None, None, [])
 
 Five_Sides = Room("Five Sides", "Now you have fallen off of the super fast car that you were fighting on and"
                   "You have ended up in the big city but that doesn't mean you are free to do what ever you want"
                   "you still have a lot of people to fight just like now and your fighting Bowser who was here for"
-                  "a brake but is fighting you now", "Bowser", None, None, "Onett", None)
+                  "a brake but is fighting you now", "Bowser", None, None, "Onett", None, [])
 
 Good_Bay = Room("Good Bay", "Well you made it out of the jungle but now your in a nice bay area"
                 "very pretty place but that does not mean you journey is over you still have "
                 "a long way to go but now you are fighting Link", "Link", "Pokefloats", None,
-                None, None)
+                None, None, [])
 
 Onett = Room("Onett", "You left the big city after your fight with Bowser and now your in a small "
              "town and your at its medicine shop called Onett but your still not done fighting"
              "you are fighting Ness in his home town and he is not or normal kid watch out", "Ness",
-             None, None, "Corneria", None)
+             None, None, "Corneria", None, [])
 
 Pokefloats = Room("Pokefloats", "You manage to beat Link but you somehow get to a float show with many "
                   "floats from pokemon and you happen to land on one of them and they start to inflate them"
                   "so now your in the air but there is still a challenger and his name is Pikachu", "Pikachu",
-                  "Pokestadium", None, None, None)
+                  "Pokestadium", None, None, None, [])
 
 Corneria = Room("Cornria", "Away from the small city you get on a ship to get away but there is someone "
                 "else in the ship he shoots at you and you jump on top of the ship and there is the "
                 "captain of the ship Falco the blue bird of the glaxies and he is your next opponent",
-                "Falco", None, None, "Venom", None)
+                "Falco", None, None, "Venom", None, [])
 
 Pokestadium = Room("Pokestadium", "You made it off the floats and won against Pikachu but you now your at "
                    "a stadium for pokemon fights and you feel a weird pressure coming from the shadows "
                    "then a ball of dark energy launches at you but you dodge it and now your next fight"
                    "begins against Mewtwo careful not to look him in the eyes up close he has a special "
                    "that confuses you to get comboed so take care ", "Mewtwo", None, None, None,
-                   "Rainbowcruise")
+                   "Rainbowcruise", [])
 
 Venom = Room("Venom", "That should have been the only person there but there was someone else on the ship"
              "Young Link jumps out on top of the ship with you. He was trying to catch a ride like you to go"
              "go back home with it but he is the last one on here and he crashed the engine so your going to"
-             "falling down soon so good luck", "Young Link", None, None, None, "Brinstar")
+             "falling down soon so good luck", "Young Link", None, None, None, "Brinstar", [])
 
 Rainbowcruise = Room("Rainbowcruise", "Now you got out the stadium and won and you see a cruise ship in the "
                      "distant so you board it but there is no breaks in this game so get ready cause your next "
                      "is on this ship and his name is Yoshi and he is a small green dinosaur but he does "
-                     "really look the part but watch out for his tongue", "Yoshi", None, None, "Flatzone", None)
+                     "really look the part but watch out for his tongue", "Yoshi", None, None, "Flatzone", None, [])
 
 Brinstar = Room("Brinstar", "The ship crashed onto a mountain side and now it is a weird valcano like area "
                 "but its green acid instead of lava and your not safe either there is still fighting even in"
                 "place and its Samus a bounty hunter of space and she is here to get you so take care and watch "
-                "cause she knows her stuff", "Samus", None, None, "BrinstarDepths", None)
+                "cause she knows her stuff", "Samus", None, None, "BrinstarDepths", None, [])
 
 Flatzone = Room("Flatzone", "You somehow made it into a video game inside of a video game and your in a 2d "
                 "area against Mr. Game And Watch who is the owner of the place and he wants you out so you gotta "
                 "go against him now and tip watch out for his judgement hammer it deals crazy damage", "MrGameAndWatch",
-                "KongoJungle64", None, None, None)
+                "KongoJungle64", None, None, None, [])
 
 Brinstardepths = Room("Brinstardepths", "You survived against a bounty hunter thats good but you fell far down and "
                       "somehow survived oh well its a game anything can happen anyway your not done fighting there "
                       "is someone with you and yes there is and he is Ganondorf the dark warlock also this place"
-                      "is ready to explode like a volcano", "Ganondorf", None, "GrenDinoIsland", None, None)
+                      "is ready to explode like a volcano", "Ganondorf", None, "GrenDinoIsland", None, None, [])
 
 
 KongoJungle64 = Room("KongoJungle64", "Game and watch let you go after you beat him and showed you the way out"
                      "or did he. You end up in a familar jungle but you are fighting kirby instead of DK or "
                      "Diddy Kong but anyway don't let Kirby hit you with his flaming hammer or it will hurt"
-                     ". Just saying your close to the end", "Kirby", None, "Keyroom", None, "TheEndHall")
+                     ". Just saying your close to the end", "Kirby", None, "Keyroom", None, "TheEndHall", [])
 
 GrenDinoIsland = Room("GrenDinoIsland", "Your on a island looks like heaven or something but its peaceful "
                       "maybe you died to the explosion after beating Ganondorf but there is someone with a sword"
                       "and his name is Roy and he is a skilled swords man also he has magic powers that can bind "
                       "with his sword so careful for that anyway your close to finishing this game", "Roy",
-                      "Keyroom", None, None, "TheEndHall")
+                      "Keyroom", None, None, "TheEndHall", [])
 
 Keyroom = Room("Keyroom", "Your in a hallway leading you to 3 different rooms choose the one you haven't been to"
-               "yet", None, None, "DreamLand64", "KongoJungle64", "GrenDinoIsland")
+               "yet", None, None, "DreamLand64", "KongoJungle64", "GrenDinoIsland", [])
 
 TheEndHall = Room("TheEndHall", "This is the end hall that will lead you to the last 2 battles with actual bosses"
-                  "and it won't be easy good luck", None, None, None, "Battlefield", None)
+                  "and it won't be easy good luck", None, None, None, "Battlefield", None, [])
 
 Battlefield = Room("Battlefield", "This is Crazy hand, he is just a hand with white glove but he is crazy and an "
                    "odd one with many attacks and more health also he is really fast so you better come up with "
-                   "a way to beat him", "CrazyHand", None, None, "FinalDestination", None)
+                   "a way to beat him", "CrazyHand", None, None, "FinalDestination", None, [])
 
 FinalDestination = Room("FinalDestination", "You beat Crazy Hand props to you but there is one more hand "
                         "the one who started this all Master Hand. He is the final boss to this world and the "
                         "only way to beat the game is to beat him but he is careful with what he does and has "
-                        "a lot of health so good luck", "MasterHand", None, None, "Victory", None)
+                        "a lot of health so good luck", "MasterHand", None, None, "Victory", None, None)
 
 Victory = Room("Victory", "You did it you won the game I hope this was a good game and not bad anyway thanks"
-               "for playing bye", None, None, None, None, None)
+               "for playing bye", None, None, None, None, None, [])
 
 current_node = journey_hallway
 directions = ["north", "south", "east", "west"]
@@ -1190,6 +1184,7 @@ short_directions = ["n", "s", "e", "w"]
 character_selection = [mario, marth, roy, luigi, peach, pikachu, mr_game_and_watch, captain_falcon, falco, samus,
                        jigglypuff, bowser, fox, ganondorf, yoshi, young_link, link, donkey_kong, kirby, ness, sheik,
                        pichu, ice_climbers, mewtwo, zelda]
+inventory = []
 # Player Selection
 
 while player is None:
@@ -1209,6 +1204,7 @@ print(player.name)
 while True:
     print(current_node.desc)
     print(current_node.name)
+    print(current_node.items)
     command = input('>_'.lower())
     if command == 'quit':
         quit(0)
