@@ -12,9 +12,12 @@ class Item(object):
 class Health(Item):
     def __init__(self, name, use):
         super(Health, self).__init__(name)
+        self.name = name
+        self.use = use
 
-    def heal(self):
-        print("You have healed yourself with %s" % self.name)
+    def done(self):
+        if self.use < 1:
+            print("Don't use this item again please")
 
 
 class Fairybottle(Health):
@@ -24,6 +27,7 @@ class Fairybottle(Health):
     def fairy(self, target):
         if target.health < 100:
             target.health += 100
+    print("%s healed you with 100 health" % self.name)
 
 
 class Heartcontainer(Health):
@@ -232,14 +236,14 @@ greenshell = Greenshell()
 
 
 class Fighter(object):
-    def __init__(self, name, att1, att2, att3, att4, accuracy):
+    def __init__(self, name, att1, att2, att3, att4):
         self.name = name
         self.hel = 300
         self.att1 = att1
         self.att2 = att2
         self.att3 = att3
         self.att4 = att4
-        self.accuracy = accuracy
+#        self.accuracy = accuracy
 
     def take_damage(self, amt):
         self.hel -= amt
@@ -250,7 +254,7 @@ class Mario(Fighter):
         super(Mario, self).__init__("Mario", 'Fireball', 'Super Jump Punch', 'Cape', 'Mario Tornado', )
 
     def attack1(self, target):
-        print("You have hit your enemy with a fireball you did some damage")
+        print("%s have hit your enemy with a fireball you did some damage" % self.name)
         target.take_damage(10)
 
     def attack2(self, target):
@@ -550,21 +554,21 @@ class Bowser(Fighter):
         super(Bowser, self).__init__("Bowser", 'Fire Breath', 'Koopa Claw', 'Whirling Fortress', 'Bowser Bomb')
 
     def attack1(self, target):
-        print("You breath fire hitting your enemy burning him")
+        print("%s breath fire hitting your enemy burning him" % self.name)
         target.take_damage(15)
 
     def attack2(self, target):
-        print("You use your claws to get a good grip on your enemy and you jump up while"
-              "holding him and slam on your enemy")
+        print("%s use your claws to get a good grip on your enemy and you jump up while"
+              "holding him and slam on your enemy" % self.name)
         target.take_damage(20)
 
     def attack3(self, target):
-        print("You come up to your enemy and get into your shell as you spin and hit"
-              "your enemy with you spikes on your shell")
+        print("%s come up to your enemy and get into your shell as you spin and hit"
+              "your enemy with you spikes on your shell" % self.name)
         target.take_damage(20)
 
     def attack4(self, target):
-        print("You jump up high into the air and come rushing down and smash your enemy")
+        print("%s jump up high into the air and come rushing down and smash your enemy" % self.name)
         target.take_damage(25)
 
 
@@ -598,23 +602,23 @@ class Sheik(Fighter):
         super(Sheik, self).__init__("Sheik", 'Needle Strom', 'Chain', 'Vanish', 'Bouncing Fish')
 
     def attack1(self, target):
-        print("You grab small throwing knifes one at a time and then rapidly throw it "
-              "at your enemy cutting him and doing some damage")
+        print("%s grab small throwing knifes one at a time and then rapidly throw it "
+              "at your enemy cutting him and doing some damage" % self.name)
         target.take_damage(15)
 
     def attack2(self, target):
-        print("You throw a chain at your enemy but it has a electric tip and you hit "
-              "them with it electrocuting them ")
+        print("%s throw a chain at your enemy but it has a electric tip and you hit "
+              "them with it electrocuting them " % self.name)
         target.take_damage(15)
 
     def attack3(self, target):
-        print("You vanish in thin air but appear in front of your enemy but before you do "
-              "there is a small explosion that hurts your enemy before you appear again")
+        print("%s vanish in thin air but appear in front of your enemy but before you do "
+              "there is a small explosion that hurts your enemy before you appear again" % self.name)
         target.take_damage(20)
 
     def attack4(self, target):
-        print("You jump up high into the air and like a fish you use your legs to swing your "
-              "self towards your enemy and hitting them with your legs and a bouncing fish")
+        print("%s jump up high into the air and like a fish you use your legs to swing your "
+              "self towards your enemy and hitting them with your legs and a bouncing fish" % self.name)
         target.take_damage(15)
 
 
@@ -623,22 +627,22 @@ class Ganondorf(Fighter):
         super(Ganondorf, self).__init__("Ganondorf", 'Warlock Punch', 'Gerudo Dragon', 'Dark Drive', "Wizard's Foot")
 
     def attack1(self, target):
-        print("You use your dark powers and release a huge amount while you punch"
-              "your enemy with a lot of force")
+        print("%s use your dark powers and release a huge amount while you punch"
+              "your enemy with a lot of force" % self.name)
         target.take_damage(35)
 
     def attack2(self, target):
-        print("You rush towards your enemy with a dark power and uppercut your enemy into the air")
+        print("%s rush towards your enemy with a dark power and uppercut your enemy into the air" % self.name)
         target.take_damage(20)
 
     def attack3(self, target):
-        print("You run up to your enemy hit him into the air and jump and grab your enemy"
-              "in mid air and a small dark explosion pops and deals good damage at your enemy")
+        print("%s run up to your enemy hit him into the air and jump and grab your enemy"
+              "in mid air and a small dark explosion pops and deals good damage at your enemy" % self.name)
         target.take_damage(20)
 
     def attack4(self, target):
-        print("You use your dark powers and kick in the air and with your powers you"
-              "rush towards your enemy foot first kicking him")
+        print("%s use your dark powers and kick in the air and with your powers you"
+              "rush towards your enemy foot first kicking him" % self.name)
         target.take_damage(15)
 
 
@@ -647,22 +651,22 @@ class YoungLink(Fighter):
         super(YoungLink, self).__init__("YoungLink", 'Bow', 'Bomb', 'Spin Attack', 'Boomerang')
 
     def attack1(self, target):
-        print("You take a bow out but you aren't as strong as link so your arrow aims "
-              "higher and out of balance but you still manage to hit your enemy ")
+        print("%s take a bow out but you aren't as strong as link so your arrow aims "
+              "higher and out of balance but you still manage to hit your enemy " % self.name)
         target.take_damage(15)
 
     def attack2(self, target):
-        print("You take out a bomb that you make and throw it at your enemy "
-              "it makes a small explosion but it sill does some damage")
+        print("%s take out a bomb that you make and throw it at your enemy "
+              "it makes a small explosion but it sill does some damage" % self.name)
         target.take_damage(15)
 
     def attack3(self, target):
-        print("You run towards your enemy and get next to him to do a spin attack "
-              "hitting your enemy with your sword")
+        print("%s run towards your enemy and get next to him to do a spin attack "
+              "hitting your enemy with your sword" % self.name)
         target.take_damage(20)
 
     def attack4(self, target):
-        print("You throw a boomerang at your enemy hitting him and coming back to you")
+        print("%s throw a boomerang at your enemy hitting him and coming back to you" % self.name)
         target.take_damage(15)
 
 
@@ -671,23 +675,23 @@ class Falco(Fighter):
         super(Falco, self).__init__("Falco", 'Blaster Combo', 'Falco Phantasm', 'Fire Bird', 'Shine')
 
     def attack1(self, target):
-        print("You shoot your enemy with a laser that causes a small stun and you use"
-              "that small time to attack and stun a again and land a combo ")
+        print("%s shoot your enemy with a laser that causes a small stun and you use"
+              "that small time to attack and stun a again and land a combo " % self.name)
         target.take_damage(20)
 
     def attack2(self, target):
-        print("You run to your enemy and in a flash you end up behind him but you hit your "
-              "enemy while you get behind him so fast")
+        print("%s run to your enemy and in a flash you end up behind him but you hit your "
+              "enemy while you get behind him so fast" % self.name)
         target.take_damage(15)
 
     def attack3(self, target):
-        print("You run next to your enemy and flame up and launch yourself into the air"
-              "with your enemy burning him and doing damage")
+        print("%s run next to your enemy and flame up and launch yourself into the air"
+              "with your enemy burning him and doing damage" % self.name)
         target.take_damage(20)
 
     def attack4(self, target):
-        print("You shoot your enemy with your blaster and then you take out your reflector that "
-              "can damage your enemy so you use it as a shine it hits you enemy and land a great combo")
+        print("%s shoot your enemy with your blaster and then you take out your reflector that "
+              "can damage your enemy so you use it as a shine it hits you enemy and land a great combo" % self.name)
         target.take_damage(35)
 
 
@@ -696,22 +700,22 @@ class Mewtwo(Fighter):
         super(Mewtwo, self).__init__("Mewtwo", 'Shadowball', 'Confusion', 'Teleport', 'Disable Combo')
 
     def attack1(self, target):
-        print("You charge up a dark ball called a shadow ball and shoot it at your enemy")
+        print("%s charge up a dark ball called a shadow ball and shoot it at your enemy" % self.name)
         target.take_damage(25)
 
     def attack2(self, target):
-        print("You use your telekinesis and grab your enemy and spin them around")
+        print("%s use your telekinesis and grab your enemy and spin them around" % self.name)
         target.take_damage(10)
 
     def attack3(self, target):
-        print("You teleport behind your enemy and throw them into the air and while they fall "
-              "you hit them with a good attack")
+        print("%s teleport behind your enemy and throw them into the air and while they fall "
+              "you hit them with a good attack" % self.name)
         target.take_damage(20)
 
     def attack4(self, target):
-        print("You come up to your enemy and flash a light in there eyes tht stuns them and then "
+        print("%s come up to your enemy and flash a light in there eyes tht stuns them and then "
               "you charge up a dark power from your finger tips and shoot it at the ground exploding "
-              "under them doing great damage")
+              "under them doing great damage" % self.name)
         target.take_damage(25)
 
 
@@ -720,20 +724,20 @@ class Pichu(Fighter):
         super(Pichu, self).__init__("Pichu", 'Thunder Jolt', 'Skull Bash', 'Agility', 'Thunder')
 
     def attack1(self, target):
-        print("You shoot a small thunder jolt and hit your enemy")
+        print("%s shoot a small thunder jolt and hit your enemy" % self.name)
         target.take_damage(10)
 
     def attack2(self, target):
-        print("You charge up to launch yourself at your enemy and you "
-              "fly to your enemy and hit them with your head")
+        print("%s charge up to launch yourself at your enemy and you "
+              "fly to your enemy and hit them with your head" % self.name)
         target.take_damage(15)
 
     def attack3(self, target):
-        print("You dash to your enemy really fast and hit him when you dash")
+        print("%s dash to your enemy really fast and hit him when you dash" % self.name)
         target.take_damage(15)
 
     def attack4(self, target):
-        print("You make a thunder cloud and and hit your self and your enemy with it ")
+        print("%s make a thunder cloud and and hit your self and your enemy with it " % self.name)
         target.take_damage(20)
 
 
@@ -742,22 +746,22 @@ class IceClimbers(Fighter):
         super(IceClimbers, self).__init__("IceClimbers", 'Ice Shot', 'Squall Hammer', 'Belay Combo', 'Blizzard', )
 
     def attack1(self, target):
-        print("You shoot an ice block at your enemy and it hit them hard")
+        print("%s shoot an ice block at your enemy and it hit them hard" % self.name)
         target.take_damage(15)
 
     def attack2(self, target):
-        print("You and your buddy spin around together and use your hammers as a weapon "
-              "to hit your enemy multiple times")
+        print("%s and your buddy spin around together and use your hammers as a weapon "
+              "to hit your enemy multiple times" % self.name)
         target.take_damage(20)
 
     def attack3(self, target):
-        print("You throw your buddy in the air and behind your enemy and he hit them towards you "
-              "and you use your hammer and hit them hard like a combo")
+        print("%s throw your buddy in the air and behind your enemy and he hit them towards you "
+              "and you use your hammer and hit them hard like a combo" % self.name)
         target.take_damage(20)
 
     def attack4(self, target):
-        print("You summon some ice and it spins around you like a blizzard and it hits you enemy "
-              "freezing them and hitting them")
+        print("%s summon some ice and it spins around you like a blizzard and it hits you enemy "
+              "freezing them and hitting them" % self.name)
         target.take_damage(25)
 
 
@@ -766,23 +770,23 @@ class MrGameAndWatch(Fighter):
         super(MrGameAndWatch, self).__init__("MrGameAndWatch", 'Chef', 'Might Number 9', 'FIRE!', 'Oil Panic')
 
     def attack1(self, target):
-        print("You cook up some food and throw it at your enemy with a pan")
+        print("%s cook up some food and throw it at your enemy with a pan" % self.name)
         target.take_damage(10)
 
     def attack2(self, target):
         print("%s take out a judgement card and it shows the number nine the strongest"
-              "out of all and you pull out a hammer and it hits your enemy with a great strength", % self.name)
+              "out of all and you pull out a hammer and it hits your enemy with a great strength" % self.name)
         target.take_damage(40)
 
     def attack3(self, target):
-        print("You hit your enemy into the sky and then two guys come out and you jump on the "
+        print("%s hit your enemy into the sky and then two guys come out and you jump on the "
               "trampoline they took out and you launch into the air and hit your enemy with a "
-              "headbutt and come down safely on a parachute")
+              "headbutt and come down safely on a parachute" % self.name)
         target.take_damage(20)
 
     def attack4(self, target):
-        print("You take out a bucket with a strange liquid and throw it at your enemy and it "
-              "hit them hard")
+        print("%s take out a bucket with a strange liquid and throw it at your enemy and it "
+              "hit them hard" % self.name)
         target.take_damage(35)
 
 
@@ -791,22 +795,22 @@ class Marth(Fighter):
         super(Marth, self).__init__("Marth", 'Shield Breaker', 'Dancing Blade', 'Dolphin Slash', 'Counter')
 
     def attack1(self, target):
-        print("You hold your sword over your head and with full power you thrust your sword at your "
-              "enemy and it hit them hard")
+        print("%s hold your sword over your head and with full power you thrust your sword at your "
+              "enemy and it hit them hard" % self.name)
         target.take_damage(30)
 
     def attack2(self, target):
-        print("You do a sequence of many slashes like a dance hitting your enemy multiple times ")
+        print("%s do a sequence of many slashes like a dance hitting your enemy multiple times " % self.name)
         target.take_damage(20)
 
     def attack3(self, target):
-        print("You jump up high with a quick uppercut with your sword at full speed slashing "
-              "your enemy ")
+        print("%s jump up high with a quick uppercut with your sword at full speed slashing "
+              "your enemy " % self.name)
         target.take_damage(20)
 
     def attack4(self, target):
-        print("You stand still and your enemy rushes at you and you counter it right before he hits "
-              "you ")
+        print("%s stand still and your enemy rushes at you and you counter it right before he hits "
+              "you " % self.name)
         target.take_damage(20)
 
 
@@ -815,34 +819,35 @@ class Roy(Fighter):
         super(Roy, self).__init__("Roy", 'Flare Blade', 'Double Edge Blade', 'Blazer', 'Counter')
 
     def attack1(self, target):
-        print("You put your blade behind you over your shoulder and it begins to flare up and "
-              "blaze and then you hit your enemy with a explosion of fire ")
+        print("%s put your blade behind you over your shoulder and it begins to flare up and "
+              "blaze and then you hit your enemy with a explosion of fire " % self.name)
         target.take_damage(25)
 
     def attack2(self, target):
-        print("You begin to slash at your enemy with many hits and at the end you hit him "
-              "with s good slash")
+        print("%s begin to slash at your enemy with many hits and at the end you hit him "
+              "with s good slash" % self.name)
         target.take_damage(20)
 
     def attack3(self, target):
-        print("You uppercut with your sword with a fire trail under you as you jump "
-              "burning your enemy ")
+        print("%s uppercut with your sword with a fire trail under you as you jump "
+              "burning your enemy " % self.name)
         target.take_damage(20)
 
     def attack4(self, target):
-        print("You stay still and wait for your enemy to attack and he rushes at you but you"
-              "counter him before he does")
+        print("%s stay still and wait for your enemy to attack and he rushes at you but you"
+              "counter him before he does" % self.name)
         target.take_damage(20)
 
 
 class Bosses(object):
-    def __init__(self, name, att1, att2, att3, att4):
+    def __init__(self, name, att1, att2, att3, att4, accuracy):
         self.name = name
         self.hel = 500
         self.att1 = att1
         self.att2 = att2
         self.att3 = att3
         self.att4 = att4
+        self.acc = accuracy
 
     def take_damage(self, amt):
         self.hel -= amt
@@ -850,120 +855,120 @@ class Bosses(object):
 
 class MasterHand(Bosses):
     def __init__(self):
-        super(MasterHand, self).__init__("MasterHand", 'Laser', 'Jet', 'Gun', 'Ram')
+        super(MasterHand, self).__init__("MasterHand", 'Laser', 'Jet', 'Gun', 'Ram', 40)
 
     def attack1(self, target):
-        print("Master Hand uses his fingers and lasers come out shooting you and burning you ")
+        print("%s uses his fingers and lasers come out shooting you and burning you " % self.name)
         target.take_damage(35)
 
     def attack2(self, target):
-        print("Master Hand becomes into a jet like hand and rushes towards you ramming and spinning "
-              "hitting you multiple times")
+        print("%s becomes into a jet like hand and rushes towards you ramming and spinning "
+              "hitting you multiple times" % self.name)
         target.take_damage(40)
 
     def attack3(self, target):
-        print("Master Hand turns into a finger gun and shoots you with and explosive bullet ")
+        print("%s turns into a finger gun and shoots you with and explosive bullet " % self.name)
         target.take_damage(30)
 
     def attack4(self, target):
-        print("Master Hand turns into a fist and rams into you fast as he can hurting you badly")
+        print("%s turns into a fist and rams into you fast as he can hurting you badly" % self.name)
         target.take_damage(45)
 
 
 class CrazyHand(Bosses):
     def __init__(self):
-        super(CrazyHand, self).__init__("CrazyHand", 'Rocket Drill', 'Bomb', 'Sweep', 'Poke')
+        super(CrazyHand, self).__init__("CrazyHand", 'Rocket Drill', 'Bomb', 'Sweep', 'Poke', 40)
 
     def attack1(self, target):
-        print("Crazy Hand flies from behind the stage and spins around flying towards you and "
-              "hitting you a lot with the spin")
+        print("%s flies from behind the stage and spins around flying towards you and "
+              "hitting you a lot with the spin" % self.name)
         target.take_damage(30)
 
     def attack2(self, target):
-        print("	Crazy Hand drops several bombs hitting you and causing explosive damage")
+        print("%s drops several bombs hitting you and causing explosive damage" % self.name)
         target.take_damage(35)
 
     def attack3(self, target):
-        print("Crazy Hand sweeps across the stage hitting you while he does it ")
+        print("%s sweeps across the stage hitting you while he does it " % self.name)
         target.take_damage(30)
 
     def attack4(self, target):
-        print("Crazy Hand pokes three times. The first causes darkness, the second causes electrocution,"
-              " and the third poke causes freezing.")
+        print("%s pokes three times. The first causes darkness, the second causes electrocution,"
+              " and the third poke causes freezing" % self.name)
         target.take_damage(45)
 
 
 class MarthBoss(Bosses):
     def __init__(self):
-        super(MarthBoss, self).__init__("Marth", 'Shield Breaker', 'Dancing Blade', 'Dolphin Slash', 'Counter')
+        super(MarthBoss, self).__init__("Marth", 'Shield Breaker', 'Dancing Blade', 'Dolphin Slash', 'Counter', 45)
 
     def attack1(self, target):
-        print("You hold your sword over your head and with full power you thrust your sword at your "
-              "enemy and it hit them hard")
+        print("%s hold your sword over your head and with full power you thrust your sword at your "
+              "enemy and it hit them hard" % self.name)
         target.take_damage(40)
 
     def attack2(self, target):
-        print("You do a sequence of many slashes like a dance hitting your enemy multiple times ")
+        print("%s do a sequence of many slashes like a dance hitting your enemy multiple times " % self.name)
         target.take_damage(30)
 
     def attack3(self, target):
-        print("You jump up high with a quick uppercut with your sword at full speed slashing "
-              "your enemy ")
+        print("%s jump up high with a quick uppercut with your sword at full speed slashing "
+              "your enemy " % self.name)
         target.take_damage(35)
 
     def attack4(self, target):
-        print("You stand still and your enemy rushes at you and you counter it right before he hits "
-              "you ")
+        print("%s stand still and your enemy rushes at you and you counter it right before he hits "
+              "you " % self.name)
         target.take_damage(30)
 
 
 class SheikBoss(Bosses):
     def __init__(self):
-        super(SheikBoss, self).__init__("Sheik", 'Needle Strom', 'Chain', 'Vanish', 'Bouncing Fish')
+        super(SheikBoss, self).__init__("Sheik", 'Needle Strom', 'Chain', 'Vanish', 'Bouncing Fish', 45)
 
     def attack1(self, target):
-        print("Sheik grabs some small throwing knifes one at a time and then rapidly throw it "
-              "at you cutting and doing damage")
+        print("%s grabs some small throwing knifes one at a time and then rapidly throw it "
+              "at you cutting and doing damage" % self.name)
         target.take_damage(25)
 
     def attack2(self, target):
-        print("Sheik throws a chain at you and it has a electric tip it hits you "
-              "with a electrocuting attack ")
+        print("%s throws a chain at you and it has a electric tip it hits you "
+              "with a electrocuting attack " % self.name)
         target.take_damage(30)
 
     def attack3(self, target):
-        print("Sheik vanishes into thin air but appears in front of you and before sheik appears"
-              "there is a small explosion that hurts you with flame damage")
+        print("%s vanishes into thin air but appears in front of you and before sheik appears"
+              "there is a small explosion that hurts you with flame damage" % self.name)
         target.take_damage(40)
 
     def attack4(self, target):
-        print("You jump up high into the air and like a fish you use your legs to swing your "
-              "self towards your enemy and hitting them with your legs and a bouncing fish")
+        print("%s jump up high into the air and like a fish you use your legs to swing your "
+              "self towards your enemy and hitting them with your legs and a bouncing fish" % self.name)
         target.take_damage(35)
 
 
 class FoxBoss(Bosses):
     def __init__(self):
-        super(FoxBoss, self).__init__("Fox", 'Fire Fox', 'Blaster', 'Fox Illusion ', 'Shine COMBO')
+        super(FoxBoss, self).__init__("Fox", 'Fire Fox', 'Blaster', 'Fox Illusion ', 'Shine COMBO', 45)
 
     def attack1(self, target):
-        print("Fox begins to flame up and blast towards your enemy like a rocket and burn you"
-              "with the fire around Fox")
+        print("%s begins to flame up and blast towards your enemy like a rocket and burn you"
+              "with the fire around %s" % self.name)
         target.take_damage(30)
 
     def attack2(self, target):
-        print("Fox takes out a blaster and shoots you with it but for some reason it hurts "
-              "more than a normal blaster")
+        print("%s takes out a blaster and shoots you with it but for some reason it hurts "
+              "more than a normal blaster" % self.name)
         target.take_damage(20)
 
     def attack3(self, target):
-        print("Fox runs towards you and before you know it he hits you hard and ends up "
-              "behind you")
+        print("%s runs towards you and before you know it he hits you hard and ends up "
+              "behind you" % self.name)
         target.take_damage(35)
 
     def attack4(self, target):
-        print("Fox Runs up and grabs you then throws you and come up to use shine hitting you "
-              "down but he kicks you down when you bounce up doing a lot of damage")
+        print("%s Runs up and grabs you then throws you and come up to use shine hitting you "
+              "down but he kicks you down when you bounce up doing a lot of damage" % self.name)
         target.take_damage(40)
 
 
@@ -1126,49 +1131,49 @@ Pokestadium = Room("Pokestadium", "You made it off the floats and won against Pi
 Venom = Room("Venom", "That should have been the only person there but there was someone else on the ship"
              "Young Link jumps out on top of the ship with you. He was trying to catch a ride like you to go"
              "go back home with it but he is the last one on here and he crashed the engine so your going to"
-             "falling down soon so good luck", "Young Link", None, None, None, "Brinstar", [])
+             "falling down soon so good luck", young_link, None, None, None, "Brinstar", [MrSaturn])
 
 Rainbowcruise = Room("Rainbowcruise", "Now you got out the stadium and won and you see a cruise ship in the "
                      "distant so you board it but there is no breaks in this game so get ready cause your next "
                      "is on this ship and his name is Yoshi and he is a small green dinosaur but he does "
-                     "really look the part but watch out for his tongue", "Yoshi", None, None, "Flatzone", None, [])
+                     "really look the part but watch out for his tongue", yoshi, None, None, "Flatzone", None, [])
 
 Brinstar = Room("Brinstar", "The ship crashed onto a mountain side and now it is a weird valcano like area "
                 "but its green acid instead of lava and your not safe either there is still fighting even in"
                 "place and its Samus a bounty hunter of space and she is here to get you so take care and watch "
-                "cause she knows her stuff", "Samus", None, None, "BrinstarDepths", None, [])
+                "cause she knows her stuff", samus, None, None, "BrinstarDepths", None, [])
 
 Flatzone = Room("Flatzone", "You somehow made it into a video game inside of a video game and your in a 2d "
                 "area against Mr. Game And Watch who is the owner of the place and he wants you out so you gotta "
-                "go against him now and tip watch out for his judgement hammer it deals crazy damage", "MrGameAndWatch",
-                "KongoJungle64", None, None, None, [])
+                "go against him now and tip watch out for his judgement hammer it deals crazy damage", MrGameAndWatch,
+                "KongoJungle64", None, None, None, [HomeRunBat])
 
 Brinstardepths = Room("Brinstardepths", "You survived against a bounty hunter thats good but you fell far down and "
                       "somehow survived oh well its a game anything can happen anyway your not done fighting there "
                       "is someone with you and yes there is and he is Ganondorf the dark warlock also this place"
-                      "is ready to explode like a volcano", "Ganondorf", None, "GrenDinoIsland", None, None, [])
+                      "is ready to explode like a volcano", ganondorf, None, "GrenDinoIsland", None, None, [Food])
 
 
 KongoJungle64 = Room("KongoJungle64", "Game and watch let you go after you beat him and showed you the way out"
                      "or did he. You end up in a familar jungle but you are fighting kirby instead of DK or "
                      "Diddy Kong but anyway don't let Kirby hit you with his flaming hammer or it will hurt"
-                     ". Just saying your close to the end", "Kirby", None, "Keyroom", None, "TheEndHall", [])
+                     ". Just saying your close to the end", kirby, None, "Keyroom", None, "TheEndHall", [Fairybottle])
 
 GrenDinoIsland = Room("GrenDinoIsland", "Your on a island looks like heaven or something but its peaceful "
                       "maybe you died to the explosion after beating Ganondorf but there is someone with a sword"
                       "and his name is Roy and he is a skilled swords man also he has magic powers that can bind "
                       "with his sword so careful for that anyway your close to finishing this game", "Roy",
-                      "Keyroom", None, None, "TheEndHall", [])
+                      "Keyroom", None, None, "TheEndHall", [Food])
 
 Keyroom = Room("Keyroom", "Your in a hallway leading you to 3 different rooms choose the one you haven't been to"
-               "yet", None, None, "DreamLand64", "KongoJungle64", "GrenDinoIsland", [])
+               "yet", None, None, "DreamLand64", "KongoJungle64", "GrenDinoIsland", [Food])
 
 TheEndHall = Room("TheEndHall", "This is the end hall that will lead you to the last 2 battles with actual bosses"
-                  "and it won't be easy good luck", None, None, None, "Battlefield", None, [])
+                  "and it won't be easy good luck", None, None, None, "Battlefield", None, [Heartcontainer])
 
 Battlefield = Room("Battlefield", "This is Crazy hand, he is just a hand with white glove but he is crazy and an "
                    "odd one with many attacks and more health also he is really fast so you better come up with "
-                   "a way to beat him", "CrazyHand", None, None, "FinalDestination", None, [])
+                   "a way to beat him", "CrazyHand", None, None, "FinalDestination", None, [Fairybottle])
 
 FinalDestination = Room("FinalDestination", "You beat Crazy Hand props to you but there is one more hand "
                         "the one who started this all Master Hand. He is the final boss to this world and the "
@@ -1176,7 +1181,7 @@ FinalDestination = Room("FinalDestination", "You beat Crazy Hand props to you bu
                         "a lot of health so good luck", "MasterHand", None, None, "Victory", None, None)
 
 Victory = Room("Victory", "You did it you won the game I hope this was a good game and not bad anyway thanks"
-               "for playing bye", None, None, None, None, None, [])
+               "for playing bye now you can leave by typing quit. Bye.", None, None, None, None, None, None)
 
 current_node = journey_hallway
 directions = ["north", "south", "east", "west"]
