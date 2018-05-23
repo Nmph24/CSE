@@ -39,6 +39,7 @@ class Heartcontainer(Health):
             target.health += 100
         print("")
 
+
 class Food(Health):
     def __init__(self):
         super(Food, self).__init__("Food", 1)
