@@ -6,6 +6,19 @@ class Item(object):
         print("You have picked up %s" % self.name)
 
 
+class Statue(Item):
+    def __init__(self, name):
+        super(Statue, self).__init__(name)
+
+
+class BobRossStatue(Statue):
+    def __init__(self):
+        super(BobRossStatue, self).__init__("Bob Ross Statue")
+
+    def look(self):
+        print("A %s look nice and it is detailed greatly" % self.name)
+
+
 class Paintings(Item):
     def __init__(self, name):
         super(Paintings, self).__init__(name)
@@ -37,6 +50,25 @@ class LakeAtTheRidge(Paintings):
         print("%s " % self.name)
 
 
+class You(object):
+    def __init__(self, name, desc):
+        self.name = name
+        self.desc = desc
+
+    def note(self):
+        print("%s " % self.name)
+
+
+your_name = input("What is your name? ")
+print("Nice to meet you %s" % your_name)
+
+your_desc = input("Tell me a little something about yourself")
+
+You = You("%s is your name" % your_name, "%s" % your_desc)
+
+print("This is You %s" % You)
+
+
 class Room(object):
     def __init__(self, name, description, s, n, e, w, items):
         self.name = name
@@ -52,25 +84,46 @@ class Room(object):
         current_node = globals()[getattr(self, direction)]
 
 
+wilderness_day = WildernessDay()
+bob_ross_statue = BobRossStatue()
+
 painters_beginning = Room("Painters Beginning", "Well this is ganna ba a great ride with a few items "
                           "not much there only really is paintings you can collect and they have some "
                           "reason to be there but you have to play to find out and this is a maze so "
-                          "it might take some time good luck with the maze", )
+                          "it might take some time good luck with the maze", "Wilderness", None, None, None,
+                          BobRossStatue())
+
+Wilderness = Room("Wilderness", "A Description", None, painters_beginning, None, None, wilderness_day)
+
+wilderness = Wilderness
 
 current_node = painters_beginning
 directions = ["north", "south", "east", "west"]
 short_directions = ["n", "s", "e", "w"]
 
+bag_of_paintings = []
+
 while True:
     print(current_node.name)
     print(current_node.desc)
-    print(current_node.items)
+    if current_node.items is not None:
+        print(current_node.items)
     command = input('>_'.lower())
     if command == 'quit':
         quit(0)
     elif command in short_directions:
         pos = short_directions.index(command)
         command = directions[pos]
+    if command in directions:
+        try:
+            current_node.move(command)
+        except KeyError:
+            print("You can not go back restart sorry")
+    elif 'pick up' in command:
+        item_req = input("What item? ")
+        if item_req.lower() == current_node.items.name.lower():
+            bag_of_paintings.append(current_node.items)
+            print("Taken.")
     if command == 'Boring':
         print("Yes it is")
     if command == 'Knock Knock':

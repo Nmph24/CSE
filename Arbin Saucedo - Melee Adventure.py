@@ -20,15 +20,6 @@ class Health(Item):
             print("Don't use this item again please")
 
 
-class Fairybottle(Health):
-    def __init__(self):
-        super(Fairybottle, self).__init__("Fairybottle", 1)
-
-    def fairy(self, target):
-        if target.health < 100:
-            target.health += 100
-    print("%s healed you with 100 health" % self.name)
-
 
 class Heartcontainer(Health):
     def __init__(self):
@@ -229,7 +220,6 @@ beamsword = Beamsword()
 xbomb = Xbomb()
 bobomb = Bobomb()
 fan = Fan()
-fairybottle = Fairybottle()
 heartcontainer = Heartcontainer()
 food = Food()
 raygun = Raygun()
@@ -1158,7 +1148,7 @@ Brinstardepths = Room("Brinstardepths", "You survived against a bounty hunter th
 KongoJungle64 = Room("KongoJungle64", "Game and watch let you go after you beat him and showed you the way out"
                      "or did he. You end up in a familar jungle but you are fighting kirby instead of DK or "
                      "Diddy Kong but anyway don't let Kirby hit you with his flaming hammer or it will hurt"
-                     ". Just saying your close to the end", kirby, None, "Keyroom", None, "TheEndHall", [Fairybottle])
+                     ". Just saying your close to the end", kirby, None, "Keyroom", None, "TheEndHall", [])
 
 GrenDinoIsland = Room("GrenDinoIsland", "Your on a island looks like heaven or something but its peaceful "
                       "maybe you died to the explosion after beating Ganondorf but there is someone with a sword"
@@ -1174,7 +1164,7 @@ TheEndHall = Room("TheEndHall", "This is the end hall that will lead you to the 
 
 Battlefield = Room("Battlefield", "This is Crazy hand, he is just a hand with white glove but he is crazy and an "
                    "odd one with many attacks and more health also he is really fast so you better come up with "
-                   "a way to beat him", "CrazyHand", None, None, "FinalDestination", None, [Fairybottle])
+                   "a way to beat him", "CrazyHand", None, None, "FinalDestination", None, [])
 
 FinalDestination = Room("FinalDestination", "You beat Crazy Hand props to you but there is one more hand "
                         "the one who started this all Master Hand. He is the final boss to this world and the "
