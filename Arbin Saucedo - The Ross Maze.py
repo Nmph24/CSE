@@ -158,7 +158,7 @@ print("Nice to meet you %s" % your_name)
 
 your_desc = input("Tell me a little something about yourself")
 
-You = You("%s is your name" % your_name, "and you are %s" % your_desc)
+You = You("Desc Of You: %s is your name" % your_name, "and you are %s" % your_desc)
 
 print(You.name, You. desc)
 
@@ -197,12 +197,12 @@ seaside_harmony = SeasideHarmony()
 a_walk_in_the_woods = AWalkInTheWoods()
 paint_brush_statue = PaintBrushStatue()
 
-painters_beginning = Room("Painters Beginning", "Well this is ganna ba a great ride with a few items "
+painters_beginning = Room("Painters Beginning", "Well this is gonna ba a great ride with a few items "
                           "not much there only really is paintings you can collect and they have some "
                           "reason to be there but you have to play to find out and this is a maze so "
                           "it might take some time so good luck with the maze also there is a random door?"
-                          "walk through it if you want to but also some tips type paths to see all your "
-                          "routes you can take anyway good lick", "Wilderness", None, None, None,
+                          "walk through it if you want to but also some tips type 'look' to see all your "
+                          "routes you can take anyway good luck", "Wilderness", None, None, None,
                           paint_brush_statue)
 
 Wilderness = Room("Wilderness", "You walked through the door and the sun is just going down and there is "
@@ -286,10 +286,10 @@ short_directions = ["n", "s", "e", "w"]
 bag_of_paintings = []
 
 while True:
-    print(current_node.name)
-    print(current_node.desc)
+    print("Name: %s" % current_node.name)
+    print("Desc: %s " % current_node.desc)
     if current_node.items is not None:
-        print(current_node.items.name)
+        print("Item: %s " % current_node.items.name)
     command = input('>_'.lower())
     if command == 'quit':
         quit(0)
@@ -318,8 +318,8 @@ while True:
             print(Item.name)
     if command == 'Inventory':
         print(bag_of_paintings)
-    if command == 'Boring':
-        print("Yes it is")
+    if command == 'Bob':
+        print("very art")
     if command == 'Knock Knock':
         print("Knock-knock - it's Knuckles - the bloat thrower ")
         print("Independent flower ")
@@ -330,8 +330,24 @@ while True:
         print("I was born by myself ")
         print("I don't need a posse - I get it on by myself ")
         print("Adversaries get shelft")
+    if command == "Kappa":
+      print("░░░░░░░░░")
+      print("░░░░▄▀▀▀▀▀█▀▄▄▄▄░░░░")
+      print("░░▄▀▒▓▒▓▓▒▓▒▒▓▒▓▀▄░░")
+      print("▄▀▒▒▓▒▓▒▒▓▒▓▒▓▓▒▒▓█░")
+      print("█▓▒▓▒▓▒▓▓▓░░░░░░▓▓█░")
+      print("█▓▓▓▓▓▒▓▒░░░░░░░░▓█░")
+      print("▓▓▓▓▓▒░░░░░░░░░░░░█░")
+      print("▓▓▓▓░░░░▄▄▄▄░░░▄█▄▀░")
+      print("░▀▄▓░░▒▀▓▓▒▒░░█▓▒▒░░")
+      print("▀▄░░░░░░░░░░░░▀▄▒▒█░")
+      print("░▀░▀░░░░░▒▒▀▄▄▒▀▒▒█░")
+      print("░░▀░░░░░░▒▄▄▒▄▄▄▒▒█░")
+      print("░░░▀▄▄▒▒░░░░▀▀▒▒▄▀░░")
+      print("░░░░░▀█▄▒▒░░░░▒▄▀░░░")
+      print("░░░░░░░░▀▀█▄▄▄▄▀")
     if command == "look":
-        print(current_node.east)
-        print(current_node.north)
-        print(current_node.south)
-        print(current_node.west)
+        print("East: %s " % current_node.east)
+        print("North: %s " % current_node.north)
+        print("South: %s " % current_node.south)
+        print("West: %s " % current_node.west)
